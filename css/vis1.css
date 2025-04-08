@@ -1,0 +1,191 @@
+#vis1 {
+    z-index: 1;
+    width: 80vw;
+    height: 70vh;
+    margin: auto;
+}
+
+.mapboxgl-control-container div, .mapboxgl-control-container a {
+    background-color: #00000000;
+}
+
+.mapboxgl-control-container a:hover {
+    color: #000000DD;
+}
+
+
+
+.mapboxgl-popup {
+    max-width: 200px;
+    background-color: #00000000;
+}
+
+.mapboxgl-popup-tip {
+    background-color: #00000000;
+}
+
+.mapboxgl-popup-content {
+    text-align: left;
+    font-family: Arial, sans-serif;
+    padding: 15px;
+    color: black;
+    background-color: #00000000;
+}
+
+.mapboxgl-popup-content b {
+    background-color: #00000000;
+}
+
+/* ######################################################################## */
+
+#control1 {
+    position: absolute;
+    z-index: 2;
+
+    width: 16vw;
+    height: 11vh;
+    margin-left: 68vw;
+    margin-top: 1vw;
+
+    border-radius: 5px;
+    background-color: #00000099;
+}
+
+#travel-time-text, #travel-method-text {
+    padding-left: 0.5vw;
+    width: 16vw;
+    height: 2.5vh;
+    line-height: 2.5vh;
+    font-size: 0.75vw;
+    text-align: left;
+    color: #ccc;
+    background-color: #00000000;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    width: 15vw;
+    height: 1vh;
+    background: #242424;
+    outline: none;
+    opacity: 0.5;
+    -webkit-transition: .25s;
+    transition: opacity .25s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.5vh; /* Set a specific slider handle width */
+    height: 1vh; /* Slider handle height */
+    background: #ccc; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 0.5vh; /* Set a specific slider handle width */
+    height: 1vh; /* Slider handle height */
+    background: #ccc; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+/* ######################################################################## */
+
+#travel-method-buttons {
+    display: flex;
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    justify-content: space-between;
+    background-color: #00000000;
+}
+
+.travel-btn {
+    width: 3vw;
+    height: 3vh;
+    font-size: 2vh;
+    border: 0;
+    border-radius: 5px;
+    background-color: #242424;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.travel-btn:hover {
+    opacity: 0.8;
+}
+
+.travel-btn.active {
+    background-color: #363636;
+    opacity: 1;
+}
+
+/* ######################################################################## */
+
+#legend1 {
+    position: absolute;
+    z-index: 2;
+
+    width: 12.5vw;
+    height: 16vh;
+    margin-left: 71.5vw;
+    margin-top: calc(-16vh - 1vw);
+
+    border-radius: 5px;
+    background-color: #00000099;
+}
+
+#price-stats {
+    margin-top: 0.25vh;
+    margin-bottom: 0.25vh;
+    background-color: #00000000;
+}
+
+#price-stats p {
+    width: 100%;
+    text-align: left;
+    color: #CCC;
+    background-color: #00000000;
+    margin-left: 0.5vw;
+    margin-top: 0.75vh;
+    margin-bottom: 0.75vh;
+    font-size: 1.6vh;
+    line-height: 1.6vh;
+}
+
+#legend1 div span {
+    display: inline-block;
+    height: 1.5vh;
+    width: 2vw;
+    margin-right: 5px;
+    margin-left: 0.5vw;
+}
+
+.price-group {
+    height: 1.5vh;
+    background-color: #00000000;
+}
+
+.price-group p {
+    color: #CCC;
+    background-color: #00000000;
+    display: inline-block;
+    width: 9vw;
+    text-align: left;
+    margin: auto;
+    font-size: 0.6vw;
+    line-height: 0.6vw;
+}
+
+#loading {
+    z-index: 999;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
