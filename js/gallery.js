@@ -2,9 +2,9 @@ var currentPage = 0;
 var num = 0;
 var lastScroll = 0;
 
-numPage = 3;
+numPage = 6;
 barTotalHeight = 40;
-titleTexts = ['Title', 'Visualization', 'Writeup']
+titleTexts = ['Title', 'Introduction', 'Visualization', 'Rationale & Critique', 'Development Process', 'Plan']
 
 
 document.onkeydown = onKeyDown;

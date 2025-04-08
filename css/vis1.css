@@ -5,6 +5,10 @@
     margin: auto;
 }
 
+.mapboxgl-canvas-container {
+    cursor: url(../images/icons/cursor.cur), auto !important
+}
+
 .mapboxgl-control-container div, .mapboxgl-control-container a {
     background-color: #00000000;
 }
@@ -43,7 +47,7 @@
     z-index: 2;
 
     width: 16vw;
-    height: 11vh;
+    height: 15vh;
     margin-left: 68vw;
     margin-top: 1vw;
 
@@ -124,6 +128,27 @@
 }
 
 .travel-btn.active {
+    background-color: #363636;
+    opacity: 1;
+}
+
+#reset-work-place-btn {
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    width: 15vw;
+    margin-top: 1vh;
+    height: 3vh;
+    font-size: 1vw;
+    color: #ccc;
+    border: 0;
+    border-radius: 5px;
+    background-color: #242424;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#reset-work-place-btn:hover {
     background-color: #363636;
     opacity: 1;
 }

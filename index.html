@@ -2,23 +2,23 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HTDAA 11.C85 Final Project">
+    <meta name="keywords" content="Photography, gallery, Architecture, Computer Science">
+    <meta name="author" content="Chenyue &quot;xdd44&quot; DAI, Zhi-Ray Wang, Yutian He, Kareen El-Sisi">
+
     <link rel="stylesheet" type="text/css" href="./css/style.css?v=1">
-    <link rel="stylesheet" type="text/css" href="./css/gallery.css">
-    <link rel="stylesheet" type="text/css" href="./css/vis1.css" />
+    <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1">
+    <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1">
+    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1" />
     <link rel="stylesheet" type="text/css" href="./css/aos.css">
-    <link rel="shortcut icon" href="./image/icons/Website icon.png">
+    <link rel="shortcut icon" href="./images/Website icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.15.0/mapbox-gl.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/2.15.0/mapbox-gl.css" rel="stylesheet" />
     <script src="./js/jquery.js"></script>
     <script src="./js/aos.js"></script>
-    <script> 
-        $(function(){
-            $.get("../../html/Common/meta.html", function(data){
-                $("head").append(data);
-            });
-        });
-    </script> 
+
     <title>FP2 | 11.C85</title>
 </head>
 
@@ -29,7 +29,13 @@
         <br>
         <br>
         <br>
-        <p>Kareem, Ray, xdd, Yutian</p>
+        <p style="text-align: center;">Kareem, Ray, xdd, Yutian</p>
+    </div>
+
+
+    <div class="container">
+        <h2>Introduction</h2>
+        <p class="writeup-text">Javier, a young staff for a real estate company, is moving to live and work in Boston. Let's follow his footsteps and look at Boston's housing problem.</p>
     </div>
 
 
@@ -44,6 +50,7 @@
                 <button class="travel-btn" data-method="walking">🚶</button>
                 <button class="travel-btn" data-method="transit">🚌</button>
             </div>
+            <button id="reset-work-place-btn">Reset to Javier's working place</button>
         </div>
         <div id="vis1"></div>
         <div class="map-overlay" id="legend1"></div>
@@ -51,9 +58,57 @@
 
 
     <div class="container">
-        <p style="padding-top: 25vh;">
-            
-        </p>
+        <h2>Rationale & Critique</h2>
+        <p class="writeup-text">- We have been addressing the feedback from FP1 and incorporated improvements into FP2, by approaching the project as a motivation and question to a targeted audience of ourselves as first-time buyers. As rising professionals, we all want to buy a house one day, but we ask ourselves, how likely will we live close to where we work? Simplifying our project into a narrative approach to explore a one topic: affordability. We discover the challenge of affordability through the lens of a young real estate agent who has to commute to present their pricey listings in Boston.</p>
+        <p class="writeup-text">- For this assignment, we chose to map out affordability and distance from it by creating a map that shows the real estate prices in the commercial hot spots of Boston and the relative distance it takes to get there based on affordable housing. </p>
+        <p class="writeup-text">- We're using a combination of radiuses to define distance, thematic/chloropeth features to highlight the intensity of the housing prices, and ______________.</p>
+        <p class="writeup-text">- We are going to be using more advanced data transformations (e.g., recalculated price bins) or additional annotations (as suggested in the feedback) to amplify differences.</p>
+    </div>
+
+    <div class="container">
+        <h2>Overview of Design Process</h2>
+        <p class="writeup-text">We started with group discussions of how we address the comments from FP1, and the important decision of what visualizations we are drawing for FP2. We finalized the decision of a personal narrative, and chose to build an interactive isochrone map that includes prices, since testing a rather sophisticated interaction will make it clear and easier for designing the remaining visualizaiton. Then we decided the division of labor based on our personal strengths:</p>
+        <p class="writeup-text">- Kareem & Ray: Data Preparation and Analysis, Writeup</p>
+        <p class="writeup-text">- Yutian: Visual and Interaction Design</p>
+        <p class="writeup-text">- xdd: Project Management, Implementation</p>
+        <p class="writeup-text">xdd started with implementing functions and Yutian was providing visual references and sketches from time to time for xdd to implementing. Our discussion with the data side led to some changes to the interaction, such as switching from display travel routing to isochrone map. Ray and Kareem were actively addressing issues encountered, such as reducing the amount of data and analyzing outliers.</p>
+        <p class="writeup-text">Since the implementation work took most of time from Yutian and xdd. Ray and Kareem worked on the writeup part. Roughly 32 people-hours were put on this assignment. The main point that can be improved was to foresee and be prepare for potential issues, such as dataset quality leading to poor visualization, and availability of public transit data.</p>
+    </div>
+
+    <div class="container" style="padding-top: 5vh;">
+        <h2>Final Project Plan</h2>
+
+        <p class="writeup-text"><b>Week 0: ~4/9</b></p>
+        <p class="writeup-text">- Data Analysis for the first viz: KR</p>
+        <p class="writeup-text">- Develop first interaction viz and overall wireframe: XY</p>
+        <p class="writeup-text">- Defining the scope of the project: KR</p>
+
+        <p class="writeup-text"><b>Week 1: 4/10~4/13 >> First Mock-up</b></p>
+        <p class="writeup-text">- Data Analysis for the second viz: KR</p>
+        <p class="writeup-text">- Develop second interaction viz: XY</p>
+        <p class="writeup-text">- Mock-up the first draft for the story page: RY</p>
+
+        <p class="writeup-text"><b>Week 2: 4/14~4/20</b></p>
+        <p class="writeup-text">- Data Analysis for the third viz: KR</p>
+        <p class="writeup-text">- Develop third interaction viz: XY</p>
+        <p class="writeup-text">- Develop features for user experiences: RY</p>
+
+        <p class="writeup-text"><b>Week 3: 4/21~4/27 <i>4/28 (Mon): MVP Project Presentation</i></b></p>
+        <p class="writeup-text">- First draft of the whole narrative contents: KR</p>
+        <p class="writeup-text">- Finalize the whole storyline and content integration: XY</p>
+        <p class="writeup-text">- Recording demo video for MVP presentation: KRXY</p>
+
+        <p class="writeup-text"><b>Week 4: 4/28~5/4</b></p>
+        <p class="writeup-text">- Revision based on MVP presentation: KRXY</p>
+        <p class="writeup-text">- Final production of remaining viz: XY</p>
+        <p class="writeup-text">- Final production of remaining content: KR</p>
+
+        <p class="writeup-text"><b>Week 5: 5/5~5/11 <i>5/12 (Mon): Final Project Exhibition</i></b></p>
+        <p class="writeup-text">- Final website debugging: XY</p>
+        <p class="writeup-text">- Final project report: KR</p>
+
+        <p class="writeup-text"><b>K = Kareem | R = Ray | Y = Yutian | X = xdd</b></p>
+        
     </div>
 
     <div id="progressBarContainer">
@@ -70,8 +125,8 @@
         </div>
     </div>
     
-    <script src="./js/vis1.js"></script>
-    <script src="./js/gallery.js"></script>
+    <script src="./js/vis1.js?v=1"></script>
+    <script src="./js/gallery.js?v=1"></script>
 
 </body>
 

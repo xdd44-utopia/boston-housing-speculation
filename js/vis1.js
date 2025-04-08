@@ -2,13 +2,29 @@ let properties = [];
 
 mapboxgl.accessToken = 'pk.eyJ1IjoieGRkNDQiLCJhIjoiY205MWllMWk1MDFhdjJ3b2pyZGR2aDZkeiJ9.0hs7-AJr3fOz-izEVbmu-g';
 
+let originalWorkingCoords = [-71.07641125665472, 42.351252717488386];
+let workingCoords = [-71.07641125665472, 42.351252717488386];
+let profile = 'cycling';
+let travelTimeMinutes = 15;
+
 const map = new mapboxgl.Map({
     container: 'vis1',
     style: 'mapbox://styles/mapbox/dark-v11',
-    center: [-71.0565, 42.3555],
+    center: workingCoords,
     zoom: 12,
-    interactive: false
+    minZoom: 10
 });
+
+var workingPlaceMarker;
+
+map.setMaxPitch(0);
+map.setMinPitch(0);
+map.dragPan.disable();
+map.dragRotate.disable();
+map.touchZoomRotate.disableRotation();
+map.doubleClickZoom.disable()
+var isMoving = false;
+var offset;
 
 d3.csv('./files/mapc_region_residential_sales_Price.csv')
     .then(data => {
@@ -27,10 +43,6 @@ d3.csv('./files/mapc_region_residential_sales_Price.csv')
     .catch(error => {
         console.error('Error loading the CSV file:', error);
     });
-
-let workingCoords = [-71.07641125665472, 42.351252717488386];
-let profile = 'cycling';
-let travelTimeMinutes = 15;
 
 function initializeMap() {
 
@@ -125,33 +137,28 @@ function initializeMap() {
         workingPlace.style.backgroundColor = '#00000000';
         workingPlace.style.borderRadius = '0';
         
-        new mapboxgl.Marker(workingPlace)
+        workingPlaceMarker = new mapboxgl.Marker(workingPlace)
           .setLngLat(workingCoords)
           .addTo(map);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // Create a popup for each property
         const popup = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false
         });
 
-        // Show popup on hover
         map.on('mouseenter', 'property-points', (e) => {
-            map.getCanvas().style.cursor = 'pointer';
             
             const coordinates = e.features[0].geometry.coordinates.slice();
             const properties = e.features[0].properties;
             
-            // Create a formatter for the price
             const formatter = new Intl.NumberFormat('en-US', {
                 style: 'currency',
                 currency: 'USD',
                 minimumFractionDigits: 0
             });
             
-            // Format information for the popup
             const price = formatter.format(properties.price);
             
             const popupContent = `
@@ -166,8 +173,33 @@ function initializeMap() {
         });
 
         map.on('mouseleave', 'property-points', () => {
-            map.getCanvas().style.cursor = '';
             popup.remove();
+        });
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        map.on("contextmenu", (e) => {});
+        map.on("mousedown", (e) => {
+            if (e.originalEvent.button === 0) {
+                workingCoords = [e.lngLat['lng'], e.lngLat['lat']];
+                workingPlaceMarker.setLngLat(workingCoords);
+                getIso();
+            } 
+            if (e.originalEvent.button === 2) {
+                isMoving = true;
+                offset = e.point;
+            } 
+        });
+        map.on("mousemove", (e) => {
+            if (isMoving) {
+                map.panBy([offset.x - e.point.x, offset.y - e.point.y], {
+                duration: 0,
+                });
+                offset = e.point;
+            }
+        });
+        map.on("mouseup", (e) => {
+            isMoving = false;
         });
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -263,4 +295,12 @@ travelButtons.forEach(button => {
         profile = this.dataset.method;
         getIso();
     });
+});
+
+const resetButton = document.getElementById("reset-work-place-btn");
+
+resetButton.addEventListener('click', function() {
+    workingCoords = originalWorkingCoords;
+    workingPlaceMarker.setLngLat(workingCoords);
+    getIso();
 });
