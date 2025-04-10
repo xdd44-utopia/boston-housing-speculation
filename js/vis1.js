@@ -2,6 +2,8 @@ let properties = [];
 
 mapboxgl.accessToken = 'pk.eyJ1IjoieGRkNDQiLCJhIjoiY205MWllMWk1MDFhdjJ3b2pyZGR2aDZkeiJ9.0hs7-AJr3fOz-izEVbmu-g';
 
+mapboxgl.accessToken = 'pk.eyJ1IjoieGRkNDQiLCJhIjoiY205MWR3dXU0MDBlcDJqb2hzc3cybmtkZSJ9.qXz-Sr2aJPDbGXfSqIEB2w';
+
 let originalWorkingCoords = [-71.07641125665472, 42.351252717488386];
 let workingCoords = [-71.07641125665472, 42.351252717488386];
 let profile = 'cycling';
@@ -51,7 +53,7 @@ function initializeMap() {
     
     const colorScale = d3.scaleLog()
         .domain([minPrice, maxPrice])
-        .range(['#ffe1a4', '#e03174'])
+        .range(['#fff5bf', '#e03174'])
         .interpolate(d3.interpolateHcl);
 
     map.on('load', () => {
@@ -123,7 +125,7 @@ function initializeMap() {
             },
             'poi-label'
         );
-        getIso();
+        getIso(true);
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -183,7 +185,7 @@ function initializeMap() {
             if (e.originalEvent.button === 0) {
                 workingCoords = [e.lngLat['lng'], e.lngLat['lat']];
                 workingPlaceMarker.setLngLat(workingCoords);
-                getIso();
+                getIso(true);
             } 
             if (e.originalEvent.button === 2) {
                 isMoving = true;
@@ -267,13 +269,16 @@ function initializeMap() {
     
 }
 
-async function getIso() {
+async function getIso(refreshFilter) {
     const query = await fetch(
         `https://api.mapbox.com/isochrone/v1/mapbox/${profile}/${workingCoords[0]},${workingCoords[1]}?contours_minutes=${travelTimeMinutes}&polygons=true&access_token=${mapboxgl.accessToken}`,
         { method: 'GET' }
     );
     const data = await query.json();
     map.getSource('iso').setData(data);
+    if (refreshFilter && map.getLayer('property-points')) {
+        map.setFilter('property-points', ['within', data]);
+    }
 }
 
 const travelTimeSlider = document.getElementById('travel-time');
@@ -283,7 +288,11 @@ travelTimeText.textContent = `Preferred travel time: ${travelTimeSlider.value} m
 travelTimeSlider.addEventListener('input', function() {
     travelTimeText.textContent = `Preferred travel time: ${this.value} minutes`;
     travelTimeMinutes = this.value;
-    getIso();
+    getIso(false);
+});
+
+travelTimeSlider.addEventListener('change', function() {
+    getIso(true);
 });
 
 const travelButtons = document.querySelectorAll('.travel-btn');
@@ -293,7 +302,7 @@ travelButtons.forEach(button => {
         travelButtons.forEach(btn => btn.classList.remove('active'));
         this.classList.add('active');
         profile = this.dataset.method;
-        getIso();
+        getIso(true);
     });
 });
 
@@ -302,5 +311,5 @@ const resetButton = document.getElementById("reset-work-place-btn");
 resetButton.addEventListener('click', function() {
     workingCoords = originalWorkingCoords;
     workingPlaceMarker.setLngLat(workingCoords);
-    getIso();
+    getIso(true);
 });

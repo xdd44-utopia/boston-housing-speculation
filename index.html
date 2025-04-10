@@ -25,24 +25,27 @@
 <body>
 
     <div class="container">
-        <h1 style="padding-top: 15vh;">Boston Housing Speculation (TBD)</h1>
+        <h1 style="padding-top: 15vh;">HomeWork: Housing Prices and Commute Time in Boston</h1>
         <br>
         <br>
         <br>
         <p style="text-align: center;">Kareem, Ray, xdd, Yutian</p>
+        <br>
+        <br>
+        <p style="text-align: center;">Note: write-up for FP2 is also down in this page</p>
     </div>
 
 
     <div class="container">
         <h2>Introduction</h2>
-        <p class="writeup-text">Javier, a young staff for a real estate company, is moving to live and work in Boston. Let's follow his footsteps and look at Boston's housing problem.</p>
+        <p class="writeup-text">Imagine this scenario. Alex, a fresh MSRED (Master in Real Estate Development) graduate, just accepted a job offer from a real estate company in downtown Boston, and is looking to purchase their first new home! Being a young new real estate agent tasked with presenting Boston's finest housing listings to potential clients, Alex will have to commute to these attractive (and pricey) residential neighborhoods on a daily basis. Follow along Alex's journey as they search for a potential new home in Boston, and uncover the trade-offs between commute time and housing affordability.</p>
     </div>
 
 
     <div class="container">
         <div class="map-overlay" id="control1">
             <p id="travel-time-text">Preferred travel time: </p>
-            <input type="range" min="10" max="60" value="15" class="slider" id="travel-time">
+            <input type="range" min="10" max="60" value="15" step="5" class="slider" id="travel-time">
             <p id="travel-method-text">Preferred travel method: </p>
             <div id="travel-method-buttons">
                 <button class="travel-btn" data-method="driving">🚗</button>
@@ -50,19 +53,25 @@
                 <button class="travel-btn" data-method="walking">🚶</button>
                 <button class="travel-btn" data-method="transit">🚌</button>
             </div>
-            <button id="reset-work-place-btn">Reset to Javier's working place</button>
+            <button id="reset-work-place-btn">Reset to Alex's working place</button>
         </div>
         <div id="vis1"></div>
         <div class="map-overlay" id="legend1"></div>
     </div>
 
 
-    <div class="container">
+    <div class="container" style="padding-top: 5vh;">
         <h2>Rationale & Critique</h2>
         <p class="writeup-text">- We have been addressing the feedback from FP1 and incorporated improvements into FP2, by approaching the project as a motivation and question to a targeted audience of ourselves as first-time buyers. As rising professionals, we all want to buy a house one day, but we ask ourselves, how likely will we live close to where we work? Simplifying our project into a narrative approach to explore a one topic: affordability. We discover the challenge of affordability through the lens of a young real estate agent who has to commute to present their pricey listings in Boston.</p>
-        <p class="writeup-text">- For this assignment, we chose to map out affordability and distance from it by creating a map that shows the real estate prices in the commercial hot spots of Boston and the relative distance it takes to get there based on affordable housing. </p>
-        <p class="writeup-text">- We're using a combination of radiuses to define distance, thematic/chloropeth features to highlight the intensity of the housing prices, and ______________.</p>
-        <p class="writeup-text">- We are going to be using more advanced data transformations (e.g., recalculated price bins) or additional annotations (as suggested in the feedback) to amplify differences.</p>
+        <p class="writeup-text">- For this assignment, we chose to map out affordability and proximity by creating a visualization that shows real estate prices across Boston and identifies areas within specified commute times (namely isochrone polygon) to Alex's workplace based on affordable housing options. We also present the option for the user to select their own workplace, to explore commute times and housing prices alongside Alex's journey, with the option to “reset to Alex's workplace”. </p>
+        <p class="writeup-text">- Before the knowledge of isochrone api, we visualized a navigation route from working place to living place that the user choose. But we found the traveling time was not clear for routes, and that also required too much interaction. This <a href="https://youtu.be/rC2VQ-oyDG0?si=hyvC8SPVexVOADVN" target="_blank">"time map"</a> inspired us into directly visualize travel time as a range on the map.</p>
+        <p class="writeup-text">- We are using a combination of radii to define travel times, thematic/chloropleth features to highlight housing price intensities, and clear annotations indicating preferred travel methods and commute times to Alex's workplace. We used the isochrono polygon to filter available properties, expecting users to explore the trade off between price and commute time. </p>
+        <p class="writeup-text">- For visualizing prices, we realized the distribution is a bit distorted, and decided to use a logarithmic scale for price groups. Eventhough, we still had to remove outliers like $1 and $478,270,876 properties. In the end we picked a price range of $10k ~ $500k. (But we did realize there is <a href="https://www.realtor.com/news/trends/home-for-1-listings/" target="_blank">story behind $1 properties</a>)</p>
+        <div class="imageContainer">
+            <img src="./images/price_distribution.png">
+        </div>
+        <p class="writeup-text">- We adopted a vertical scrolling user interface to present a sequential journey through our main character’s narrative. We selected a red-yellow gradient as the color theme for our first interactive map for housing prices to visually indicate how heated the housing market in Boston is.</p>
+        <p class="writeup-text">- We are planning to use advanced data transformations, such as recalculated price bins or additional annotations (as suggested in the feedback), to better highlight the affordability challenge and amplify differences.</p>
     </div>
 
     <div class="container">
@@ -73,6 +82,15 @@
         <p class="writeup-text">- xdd: Project Management, Implementation</p>
         <p class="writeup-text">xdd started with implementing functions and Yutian was providing visual references and sketches from time to time for xdd to implementing. Our discussion with the data side led to some changes to the interaction, such as switching from display travel routing to isochrone map. Ray and Kareem were actively addressing issues encountered, such as reducing the amount of data and analyzing outliers.</p>
         <p class="writeup-text">Since the implementation work took most of time from Yutian and xdd. Ray and Kareem worked on the writeup part. Roughly 32 people-hours were put on this assignment. The main point that can be improved was to foresee and be prepare for potential issues, such as dataset quality leading to poor visualization, and availability of public transit data.</p>
+
+        <br>
+        <br>
+        <hr style="width: 75vw; margin: auto;">
+        <br>
+        <br>
+
+        <h2>Contingency Plan</h2>
+        <p class="writeup-text">Should any of the elements take up more development time than expected, we will evaluate our scope as a team at the end of W2, and potentially reduce the complexity of cosmetic user interaction elements (e.g. parallax effect during scrolling) to manage time spent on UX development, and/or drop one of the three visualizations as a back-up plan, to focus on narrative and user experience integration for the remainder of the time.</p>
     </div>
 
     <div class="container" style="padding-top: 5vh;">
