@@ -7,10 +7,10 @@
     <meta name="keywords" content="Photography, gallery, Architecture, Computer Science">
     <meta name="author" content="Chenyue &quot;xdd44&quot; DAI, Zhi-Ray Wang, Yutian He, Kareen El-Sisi">
 
-    <link rel="stylesheet" type="text/css" href="./css/style.css?v=1.1">
-    <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.1">
-    <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.1">
-    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.1" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.2" />
     <link rel="stylesheet" type="text/css" href="./css/aos.css">
     <link rel="shortcut icon" href="./images/Website icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -25,7 +25,7 @@
 <body>
 
     <div class="container">
-        <h1 style="padding-top: 15vh;">HomeWork: Housing Prices and Commute Time in Boston</h1>
+        <h1 style="padding-top: 15vh;">Boston Housing Speculation: From a Personal Perspective</h1>
         <br>
         <br>
         <br>
@@ -38,11 +38,12 @@
 
     <div class="container">
         <h2>Introduction</h2>
-        <p class="writeup-text">Imagine this scenario. Alex, a fresh MSRED (Master in Real Estate Development) graduate, just accepted a job offer from a real estate company in downtown Boston, and is looking to purchase their first new home! Being a young new real estate agent tasked with presenting Boston's finest housing listings to potential clients, Alex will have to commute to these attractive (and pricey) residential neighborhoods on a daily basis. Follow along Alex's journey as they search for a potential new home in Boston, and uncover the trade-offs between commute time and housing affordability.</p>
+        <p class="writeup-text">Imagine this scenario. Alex, a fresh MSRED (Master in Real Estate Development) graduate, just accepted a job offer from a real estate company in downtown Boston, and is looking to purchase their first new home! Being a young new real estate agent tasked with presenting Boston's finest housing listings to potential clients, Alex will have to commute to these attractive (and pricey) residential neighborhoods on a daily basis. As Alex navigates Boston's competitive housing market, they're faced with the realities of property speculation that has driven prices ever higher in many neighborhoods. Follow along Alex's journey as they search for a potential new home in Boston, and uncover the impact of market speculation from both both the perspectives of individuals and real estate firms.</p>
     </div>
 
 
     <div class="container">
+        <p id="vis1-title">Housing Prices vs. Commute Time: What Can You Afford?</p>
         <div class="map-overlay" id="control1">
             <p id="travel-time-text">Preferred travel time: </p>
             <input type="range" min="10" max="60" value="15" step="5" class="slider" id="travel-time">
@@ -76,7 +77,7 @@
 
     <div class="container">
         <h2>Overview of Design Process</h2>
-        <p class="writeup-text">We started with group discussions of how we address the comments from FP1, and the important decision of what visualizations we are drawing for FP2. We finalized the decision of a personal narrative, and chose to build an interactive isochrone map that includes prices, since testing a rather sophisticated interaction will make it clear and easier for designing the remaining visualizaiton. Then we decided the division of labor based on our personal strengths:</p>
+        <p class="writeup-text">We started with group discussions of how we address the comments from FP1, and the important decision of what visualizations we are drawing for FP2. We finalized the decision of a personal narrative, and chose to temporarily put aside our topic of speculation, and build an interactive isochrone map that visualizes prices, since testing a rather sophisticated interaction will make it clear and easier for designing the remaining visualizaiton. Then we decided the division of labor based on our personal strengths:</p>
         <p class="writeup-text">- Kareem & Ray: Data Preparation and Analysis, Writeup</p>
         <p class="writeup-text">- Yutian: Visual and Interaction Design</p>
         <p class="writeup-text">- xdd: Project Management, Implementation</p>
@@ -143,8 +144,8 @@
         </div>
     </div>
     
-    <script src="./js/vis1.js?v=1.1"></script>
-    <script src="./js/gallery.js?v=1.1"></script>
+    <script src="./js/vis1.js?v=1.2"></script>
+    <script src="./js/gallery.js?v=1.2"></script>
 
 </body>
 
