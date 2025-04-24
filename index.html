@@ -71,20 +71,25 @@
         <p class="writeup-text">Select a neighborhood to see owner-occupancy vs. corporate ownership, and the average home price.</p>
       
         <div id="desk-viz-container">
-          
+            
           <div id="desk-scene">
+            <img id="desk-bg" src="./images/desk_scene_bg.png" alt="Desk background" />
+            <svg id="desk-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"></svg>
             <div id="desk-ui">
                 <label for="neighborhood-select">Choose a neighborhood:</label>
                 <select id="neighborhood-select"></select>
-              </div>
-            <img id="desk-bg" src="./images/desk_scene_bg.png" alt="Desk background" />
-            <!-- <svg id="desk-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"></svg> -->
+            </div>
           </div>
           <div id="price-bar-container">
             <div id="price-bar-bg">
               <div id="price-arrow"></div>
-            </div>
-            <p id="price-label">Average Price: $XXX,XXX</p>
+            <!-- <div class="price-label-tag" style="top: 0;">High</div>
+            <div class="price-label-tag" style="bottom: 0;">Low</div> -->
+        </div>
+        <p id="price-label">
+            <span>Average Price</span><br>
+            <span id="price-amount">$XXX,XXX</span>
+        </p>
           </div>
         </div>
       </div>
