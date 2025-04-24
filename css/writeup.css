@@ -1,8 +1,15 @@
-.writeup-text {
+/* .writeup-text {
     font-size: min(1.3vw, 1.75vh);
 	line-height: 125%;
     margin-bottom: 1vh;
+} */
+
+.writeup-text {
+    font-size: min(1.8vw, 2.2vh); 
+    line-height: 135%;            
+    margin-bottom: 1.5vh;         
 }
+
 
 .imageContainer {
     width: 75vw;

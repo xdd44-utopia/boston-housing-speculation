@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.2">
     <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.2">
     <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.2" />
+    <link rel="stylesheet" type="text/css" href="./css/vis2.css" />
     <link rel="stylesheet" type="text/css" href="./css/aos.css">
     <link rel="shortcut icon" href="./images/Website icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -60,6 +61,50 @@
         <div class="map-overlay" id="legend1"></div>
     </div>
 
+    <div class="container">
+        <h2>Who are Alex's Clients in Boston?</h2>
+        <p class="writeup-text">[Placeholder for zoom interface]</p>
+    </div>
+
+    <div class="container" id="who-owns-it-section">
+        <h2>Who Owns It?!</h2>
+        <p class="writeup-text">Select a neighborhood to see owner-occupancy vs. corporate ownership, and the average home price.</p>
+      
+        <div id="desk-viz-container">
+            
+          <div id="desk-scene">
+            <img id="desk-bg" src="./images/desk_scene_bg.png" alt="Desk background" />
+            <svg id="desk-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"></svg>
+            <div id="desk-ui">
+                <label for="neighborhood-select">Choose a neighborhood:</label>
+                <select id="neighborhood-select"></select>
+            </div>
+          </div>
+          <div id="price-bar-container">
+            <div id="price-bar-bg">
+              <div id="price-arrow"></div>
+            <!-- <div class="price-label-tag" style="top: 0;">High</div>
+            <div class="price-label-tag" style="bottom: 0;">Low</div> -->
+        </div>
+        <p id="price-label">
+            <span>Average Price</span><br>
+            <span id="price-amount">$XXX,XXX</span>
+        </p>
+          </div>
+        </div>
+      </div>
+      
+            
+
+    <div class="container">
+        <h2>Is Anyone Home?</h2>
+        <p class="writeup-text">[Placeholder for vacancy rates visualization - doors]</p>
+    </div>
+
+    <div class="container">
+        <h2>If You Can't Beat 'Em, Join 'Em!</h2>
+        <p class="writeup-text">[Placeholder for Alex's villain arc - visualization for flipping]</p>
+    </div>
 
     <div class="container" style="padding-top: 5vh;">
         <h2>Rationale & Critique</h2>
@@ -146,6 +191,8 @@
     
     <script src="./js/vis1.js?v=1.2"></script>
     <script src="./js/gallery.js?v=1.2"></script>
+    <script src="./js/vis2.js?v=1.0"></script>
+
 
 </body>
 
