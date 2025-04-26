@@ -66,53 +66,68 @@ p {
 
 #progressBarContainer {
 	position: fixed;
-	left: 90vw;
+	left: 100vw;
 	top: 0;
-	width: 10vw;
+	width: 2vw;
 	height: 100vh;
+	transition: .5s;
+	background-color: #242424;
 }
 
 #progressBar {
 	width: 100%;
-	height: 50vh;
-	margin-top: 25vh;
+	height: 100vh;
+	background-color: #242424;
+	transition: .5s;
+}
+
+#progressBarContainer:hover #progressBar {
+	height: 96vh;
 }
 
 /* Bar total height 40vh */
 
 #upperBar, #lowerBar {
-	background-color: #888888;
+	background-color: #CCCCCC88;
 	width: 2px;
-	margin-left: calc((10vw - 2px) / 2);
 	transition: height .5s;
 }
 
 #upperBar {
-	margin-top: 2vh;
 	height: 4vh;
 }
 
 #lowerBar {
 	height: 36vh;
-	margin-bottom: 2vh;
 }
 
 #currentTitle {
-	height: 2vh;
+	height: 10vh;
+	transition: height .5s;
+	background-color: #242424;
+	border-left: 2px solid #CCC;
 }
 
 #currentTitleText {
-	padding-top: 0.55vh;
+	width: 100%;
+	height: 100%;
+	writing-mode: vertical-lr;
+	text-orientation: sideways;
 	text-align: center;
 	font-size: 1vh;
-	line-height: 1vh;
-	width: 100%;
+	background-color: #242424;
 }
 
 #upArrow,
 #downArrow {
 	background-color: #00000000;
 	height: 2vh;
+	cursor: pointer;
+}
+
+#upArrow {
+	margin-top: -2vh;
+	transition: .5s;
 }
 
 #upArrowImg,
@@ -120,22 +135,17 @@ p {
 	margin-left: auto;
 	margin-right: auto;
 
-	width: 4vh;
+	width: 2vh;
 	height: 2vh;
 
 	display: block;
 	object-fit: contain;
-	opacity: 0%;
-	transition: .5s;
+	opacity: 100%;
 	background-color: #00000000;
 }
 
-#progressBarContainer:hover #upArrowImg {
-	opacity: 100%;
-}
-
-#progressBarContainer:hover #downArrowImg {
-	opacity: 100%;
+#progressBarContainer:hover #upArrow {
+	margin-top: 0;
 }
 
 footer {
