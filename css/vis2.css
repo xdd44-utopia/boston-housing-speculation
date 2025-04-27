@@ -7,7 +7,7 @@
   
 #desk-scene {
   position: relative;
-  height: 500px;
+  height: 550px;
 }
 
 
@@ -34,29 +34,29 @@
 
 
 #desk-ui {
- 
   position: absolute;
   top: 20px;   
   left: 20px;
-  /* margin: 0 auto;
-  width: 200px;
-  text-align: left; */
   z-index: 10;
-  background-color: black;
-  /* border-radius: 5px; */
+  background-color: transparent; 
   padding: 8px 12px;
   font-size: 14px;
-  /* font-family: monospace;  */
-  /* box-shadow: 2px 2px 4px rgba(0,0,0,0.15); */
+}
+
+#desk-ui label {
+  color: #ddd; 
+  font-weight: bold;
+  margin-bottom: 8px; 
+  display: block; 
 }
 
 #price-bar-container {
   background-color: transparent !important;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  height: 180px;
-  width: 80px;
+  top: 60px;
+  right: 35px;
+  height: 250px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +87,7 @@
 .price-label-tag {
   background: transparent !important;
   color: black;
-  font-size: 12px;
+  font-size: 18px;
   position: absolute;
   right: 25px;
 }
@@ -98,7 +98,7 @@
   padding: 2px 2px;
   text-align: center;
   color: black;
-  font-size: 12px;
+  font-size: 18px;
   /* font-weight: bold; */
   line-height: 1.2;
   width: 100%;
@@ -112,11 +112,11 @@
 #price-amount {
   background: transparent !important;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   color: black;
 }
 
-#neighborhood-select {
+#city-select {
   background-color: #f0f0f0;
   color: #000;
   border: 1px solid #ccc;
@@ -125,3 +125,49 @@
   border-radius: 4px;
   font-size: 14px;
 }
+
+#city-list {
+  height: 500px;
+  width: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #bbb;
+  background-color: #f9f7f1; 
+  padding: 4px;
+  font-size: 11px;
+  line-height: 1.1;
+  font-family: 'Noto Sans', sans-serif; 
+  border-radius: 6px;
+  color: #333;
+}
+
+.city-entry {
+  padding: 2px 4px;
+  font-size: 12px;
+  line-height: 1.2;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  background-color: transparent; 
+  color: #333;
+}
+
+.city-entry:hover:not(.selected) {
+  background-color: #ece9df; 
+  color: #111;
+}
+
+.city-entry.selected {
+  background-color: #ddd4c6; 
+  color: #000;
+  font-weight: bold;
+}
+
+#city-paper {
+  /* background-color: #f9f7f1;  */
+  padding: 8px;
+  border-radius: 6px;
+}
+
+
+

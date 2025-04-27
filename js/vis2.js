@@ -2,41 +2,107 @@ document.addEventListener("DOMContentLoaded", () => {
     const svg = d3.select("#desk-svg");
     const arrow = document.getElementById("price-arrow");
     const label = document.getElementById("price-label");
-    const dropdown = document.getElementById("neighborhood-select");
+    const dropdown = document.getElementById("city-select");
 
   
     // Load and bind data
     d3.csv("./files/ownership_and_vacancy_over_time.csv").then(files => {
       console.log("Loaded rows:", files.length);
       console.log(files[0]);
-  
-      const cities = Array.from(new Set(files.map(d => d.city)));
-      cities.forEach(city => {
-        const opt = document.createElement("option");
-        opt.value = city;
-        opt.textContent = city;
-        dropdown.appendChild(opt);
+
+      //group by city
+      const cityMap = new Map();
+      files.forEach(d => {
+        if (!cityMap.has(d.city)) {
+          cityMap.set(d.city, {
+            city: d.city,
+            corporateSales: +d.corporate_sales,
+            totalSales: +d.total_sales
+          });
+        } else {
+          const existing = cityMap.get(d.city);
+          existing.corporateSales += +d.corporate_sales;
+          existing.totalSales += +d.total_sales;
+        }
       });
-  
-    const priceExtent = d3.extent(files, d => +d.avg_price); 
-    // const priceScale = d3.scaleLinear()
-    //     .domain(priceExtent)
-    //     .range([10, 170]); 
-    const priceScale = d3.scaleLog()
-        .domain(priceExtent)
-        .range([170, 10]);  // flipped because top = high price
+
+        // create array with corporate ratio and sort
+        const cities = Array.from(cityMap.values()).map(d => ({
+          city: d.city,
+          corporateRatio: d.corporateSales / d.totalSales
+        }));
+        cities.sort((a, b) => a.corporateRatio - b.corporateRatio);
+        
+        //scroll and mouseover
+        const cityList = document.getElementById("city-list");
+
+        cities.forEach(({ city, corporateRatio }) => {
+          const cityDiv = document.createElement("div");
+          cityDiv.classList.add("city-entry"); 
+          cityDiv.textContent = `${city}`;
+
+          cityDiv.addEventListener("mouseenter", () => {
+            const allCities = cityList.querySelectorAll(".city-entry");
+            allCities.forEach(div => div.classList.remove("selected"));
+            cityDiv.classList.add("selected");
+            
+            updateViz(city);
+          });
+
+          cityList.appendChild(cityDiv);
+        });
+
+        
+        // define price scale
+        const priceExtent = d3.extent(files, d => +d.avg_price); 
+
+        const priceScale = d3.scaleLog()
+            .domain(priceExtent)
+            .range([170, 10]);  
+    
+
+        //auto scroll
+        let scrollInterval = null;
+
+        cityList.addEventListener("mousemove", (event) => {
+          const bounds = cityList.getBoundingClientRect();
+          const mouseY = event.clientY - bounds.top;
+
+          const scrollThreshold = 40; 
+          const scrollSpeed = 5; 
+
+          clearInterval(scrollInterval); 
+
+          if (mouseY < scrollThreshold) {
+            scrollInterval = setInterval(() => {
+              cityList.scrollTop -= scrollSpeed;
+            }, 16); // ~60fps
+          } else if (mouseY > bounds.height - scrollThreshold) {
+            scrollInterval = setInterval(() => {
+              cityList.scrollTop += scrollSpeed;
+            }, 16);
+          }
+        });
+
+        cityList.addEventListener("mouseleave", () => {
+          clearInterval(scrollInterval);
+        });
+
+        updateViz(cities[0].city);
 
   
-      dropdown.addEventListener("change", () => updateViz(dropdown.value));
-      updateViz(cities[0]);
-  
       function updateViz(city) {
-        const d = files.find(row => row.city === city);
-        if (!d) return;
-  
-        const corporateRatio = +d.corporate_sales / +d.total_sales;
-        const ownerRatio = +d.owner_occ_sales / +d.total_sales;
-        const avgPrice = +d.avg_price;
+
+        const cityRows = files.filter(row => row.city === city);
+        if (cityRows.length === 0) return;
+
+        const totalCorporateSales = cityRows.reduce((sum, d) => sum + (+d.corporate_sales), 0);
+        const totalOwnerOccSales = cityRows.reduce((sum, d) => sum + (+d.owner_occ_sales), 0);
+        const totalSales = cityRows.reduce((sum, d) => sum + (+d.total_sales), 0);
+        const avgPrice = cityRows.reduce((sum, d) => sum + (+d.avg_price), 0) / cityRows.length;
+
+        const corporateRatio = totalCorporateSales / totalSales;
+        const ownerRatio = totalOwnerOccSales / totalSales;
   
         const priceAmount = document.getElementById("price-amount");
         if (priceAmount) {
@@ -51,17 +117,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const viewBoxHeight = 400;
   
         const tileWidth = 400;
-        const tileHeight = 40;
-        const tileGap = -31; // space in pixels between tiles
+        const tileHeight = 30;
+        const tileGap = -25; // space in pixels between tiles
         const barMaxHeight = 280;  // total height for full 100% stack
         const maxLayers = Math.floor(barMaxHeight / (tileHeight + tileGap));
 
         const corpLayers = Math.round(corporateRatio * maxLayers);
         const ownerLayers = Math.round(ownerRatio * maxLayers);
   
-        const corporateX = 80;
+        const corporateX = 120;
         const ownerX = (corporateX +230);
-        const baseY = 330; // Bottom of the stack
+        const baseY = 320; // Bottom of the stack
   
         for (let i = 0; i < corpLayers; i++) {
         svg.append("image")
@@ -94,6 +160,23 @@ document.addEventListener("DOMContentLoaded", () => {
           .attr("y", baseY + 60)
           .attr("text-anchor", "middle")
           .text("Owner-Occupied");
+
+        // Corporate % label
+        svg.append("text")
+        .attr("x", corporateX + 190)
+        .attr("y", baseY + 75)  
+        .attr("text-anchor", "middle")
+        .attr("font-size", "14px")
+        .text(`${(corporateRatio * 100).toFixed(1)}%`);
+
+        // Owner-Occupied % label
+        svg.append("text")
+        .attr("x", ownerX + 210)
+        .attr("y", baseY + 75)  
+        .attr("text-anchor", "middle")
+        .attr("font-size", "14px")
+        .text(`${(ownerRatio * 100).toFixed(1)}%`);
+
       }
     });
   });
