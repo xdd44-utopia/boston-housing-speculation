@@ -42,9 +42,9 @@ p {
 }
 
 .container {
-	width: 90vw;
+	position: relative;
+	width: 100vw;
 	height: 100vh;
-	padding-top: 15vh;
 	/* scroll-snap-align: center; */
 }
 

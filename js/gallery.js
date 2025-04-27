@@ -6,7 +6,7 @@ numIntroPage = 2;
 numPage = 6;
 var barLength = 100 / (numPage - numIntroPage);
 
-titleTexts = ['Visualization', 'Rationale & Critique', 'Development Process', 'Plan']
+titleTexts = ['Affordability', 'Virtual Tour', 'Ownership', 'Vacancy Rate']
 
 
 document.onkeydown = onKeyDown;

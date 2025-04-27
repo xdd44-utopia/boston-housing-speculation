@@ -1,8 +1,7 @@
 #vis1 {
     z-index: 1;
     width: 70vw;
-    height: 70vh;
-    margin: auto;
+    height: 100vh;
 }
 
 .mapboxgl-canvas-container {
@@ -42,17 +41,26 @@
 
 /* ######################################################################## */
 
-#vis1-title {
+#vis1Title {
     position: absolute;
     z-index: 2;
 
-    width: 50vw;
+    width: 24vw;
     height: 15vh;
-    margin-left: 6vw;
-    margin-top: 1vw;
+    left: 72vw;
 
-    color: #ccc;
-    background-color: #00000000;
+    text-align: left;
+    font-size: 3vw;
+    line-height: 3.5vw;
+}
+
+#vis1Text {
+    position: absolute;
+    z-index: 2;
+
+    top: 28vh;
+    left: 72vw;
+    width: 24vw;
 }
 
 /* ######################################################################## */
@@ -61,22 +69,19 @@
     position: absolute;
     z-index: 2;
 
-    width: 16vw;
-    height: 15vh;
-    margin-left: 68vw;
-    margin-top: 1vw;
+    width: 24vw;
+    left: 72vw;
+    bottom: 2vw;
 
     border-radius: 5px;
-    background-color: #00000099;
 }
 
 #travel-time-text, #travel-method-text {
-    padding-left: 0.5vw;
-    width: 16vw;
-    height: 2.5vh;
-    line-height: 2.5vh;
-    font-size: 0.75vw;
-    text-align: left;
+    width: 100%;
+    text-align: center;
+    height: 1.5vw;
+    line-height: 1.5vw;
+    font-size: 1vw;
     color: #ccc;
     background-color: #00000000;
 }
@@ -85,11 +90,10 @@
     -webkit-appearance: none;
     appearance: none;
 
-    margin-left: 0.5vw;
-    margin-right: 0.5vw;
-    width: 15vw;
+    width: 100%;
     height: 1vh;
-    background: #242424;
+    margin-top: 0.5vw;
+    background: #000000;
     outline: none;
     opacity: 0.5;
     -webkit-transition: .25s;
@@ -120,19 +124,18 @@
 
 #travel-method-buttons {
     display: flex;
-    margin-left: 0.5vw;
-    margin-right: 0.5vw;
     justify-content: space-between;
     background-color: #00000000;
+    margin-top: 0.5vw;
 }
 
 .travel-btn {
-    width: 3vw;
-    height: 3vh;
-    font-size: 2vh;
+    width: 5.6vw;
+    height: 4vh;
+    font-size: 2.5vh;
     border: 0;
     border-radius: 5px;
-    background-color: #242424;
+    background-color: #000000;
     opacity: 0.5;
     cursor: pointer;
     transition: 0.25s;
@@ -148,16 +151,14 @@
 }
 
 #reset-work-place-btn {
-    margin-left: 0.5vw;
-    margin-right: 0.5vw;
-    width: 15vw;
+    width: 24vw;
     margin-top: 1vh;
-    height: 3vh;
+    height: 4vh;
     font-size: 1vw;
     color: #ccc;
     border: 0;
     border-radius: 5px;
-    background-color: #242424;
+    background-color: #000000;
     opacity: 0.5;
     cursor: pointer;
     transition: 0.25s;
@@ -176,8 +177,8 @@
 
     width: 12.5vw;
     height: 16vh;
-    margin-left: 71.5vw;
-    margin-top: calc(-16vh - 1vw);
+    left: 2vw;
+    bottom: 2vw;
 
     border-radius: 5px;
     background-color: #00000099;

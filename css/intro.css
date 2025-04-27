@@ -1,14 +1,10 @@
-#introDetector {
-    position: absolute;
-    top: 100vh;
-}
-
 #introImage {
+    display: block;
     position: absolute;
     width: 66vw;
     height: 44vw;
     left: 5vw;
-    top: calc((100vh - 44vw) / 2 + 100vh);
+    top: calc((100vh - 44vw) / 2);
     z-index: 100;
 }
 
@@ -18,9 +14,21 @@
     height: 100%;
 }
 
-#introTitle, .introText {
+#introTitle, #introText {
+    position: absolute;
+    margin-top: 0;
     margin-left: 73vw;
     margin-right: 0;
     width: 25vw;
     text-align: left;
+}
+
+#introTitle {
+    top: calc((100vh - 44vw) / 2);
+    font-size: 3vw;
+    line-height: 3vw;
+}
+
+#introText {
+    top: calc((100vh - 44vw) / 2 + 6vw);
 }

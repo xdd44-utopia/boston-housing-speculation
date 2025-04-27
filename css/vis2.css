@@ -1,127 +1,84 @@
-#desk-viz-container {
-  background-color: transparent !important;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-}
-  
-#desk-scene {
-  position: relative;
-  height: 500px;
+#clientBackground {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 98vw;
 }
 
+#vis2MainText {
+    position: absolute;
+    top: 40vh;
+    width: 80vw;
+    margin: 0;
+    margin-left: 9vw;
+    margin-right: 9vw;
 
-#desk-bg {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  /* border-radius: 8px; */
-  z-index: 0;
+    font-size: 3vw;
+    line-height: 3.5vw;
+
+    background-color: #00000000;
+
+    transition: 0.5s;
 }
 
-#desk-svg {
-  background-color: transparent !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  /* border: 2px dashed lime; */
+#loadingIcon {
+    position: absolute;
+    top: 60vh;
+    left: calc(49vw - 40px);
+    width: 80px;
+    height: 80px;
+    background-color: #CCC;
+
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
-
-#desk-ui {
- 
-  position: absolute;
-  top: 20px;   
-  left: 20px;
-  /* margin: 0 auto;
-  width: 200px;
-  text-align: left; */
-  z-index: 10;
-  background-color: black;
-  /* border-radius: 5px; */
-  padding: 8px 12px;
-  font-size: 14px;
-  /* font-family: monospace;  */
-  /* box-shadow: 2px 2px 4px rgba(0,0,0,0.15); */
+@keyframes flashing {
+    0%   {opacity: 1;}
+    50%  {opacity: 0;}
+    100% {opacity: 1;}
 }
 
-#price-bar-container {
-  background-color: transparent !important;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  height: 180px;
-  width: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  z-index: 10;
+#clientMeeting {
+    display: none;
+    position: absolute;
+    width: 98vw;
+    height: 100vh;
+
+    background-color: #00000000;
 }
 
-#price-bar-bg {
-  width: 15px;
-  height: 180px;
-  background: linear-gradient(to top, #fff8b3, #e63946) !important;
-  position: relative;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  border: 2px solid black;  
+#roomTour {
+    width: 80vw;
+    height: calc(80vh - (80vw - 30px) / 4 / 16 * 9 - 10px);
+    margin-left: 9vw;
+    margin-top: 10vh;
 }
 
-#price-arrow {
-  width: 1;
-  height: 1;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 8px solid black;
-  position: absolute;
-  left: -5px;
+#clientVideos {
+    width: 80vw;
+    height: calc((80vw - 30px) / 4 / 16 * 9);
+    margin-left: 9vw;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.price-label-tag {
-  background: transparent !important;
-  color: black;
-  font-size: 12px;
-  position: absolute;
-  right: 25px;
+.clientVideo {
+    position: relative;
+    width: calc((80vw - 100px) / 4);
+    height: calc((80vw - 30px) / 4 / 16 * 9);
+    background-color: #CCC;
 }
 
-#price-label {
-  background: transparent !important;
-  margin-top: 4px;
-  padding: 2px 2px;
-  text-align: center;
-  color: black;
-  font-size: 12px;
-  /* font-weight: bold; */
-  line-height: 1.2;
-  width: 100%;
-}
+.clientVideo p {
+    position: absolute;
+    bottom: 0;
+    width: calc((80vw - 100px) / 4);
+    text-align: center;
+    z-index: 100;
 
-#price-label span {
-  background: none !important;
-  color: black !important;
-}
-
-#price-amount {
-  background: transparent !important;
-  font-weight: bold;
-  font-size: 14px;
-  color: black;
-}
-
-#neighborhood-select {
-  background-color: #f0f0f0;
-  color: #000;
-  border: 1px solid #ccc;
-  /* font-family: monospace; */
-  padding: 4px;
-  border-radius: 4px;
-  font-size: 14px;
+    background-color: #00000088;
 }

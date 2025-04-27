@@ -1,15 +1,23 @@
 const introImage = document.getElementById('introImage');
 const introDetector = document.getElementById('introDetector');
 
-const baseTop = (window.innerHeight - 0.44 * window.innerWidth) / 2 + window.innerHeight;
-const baseLeft = 0.05 * window.innerWidth;
-const baseWidth = 0.66 * window.innerWidth;
-const baseHeight = 0.44 * window.innerWidth;
+var baseTop;
+var baseLeft;
+var baseWidth;
+var baseHeight;
 
 addEventListener("load", (event) => {
+	baseTop = (window.innerHeight - 0.44 * window.innerWidth) / 2;
+	baseLeft = 0.05 * window.innerWidth;
+	baseWidth = 0.66 * window.innerWidth;
+	baseHeight = 0.44 * window.innerWidth;
 	updateIntroPhoto();
 });
 addEventListener("resize", (event) => {
+	baseTop = (window.innerHeight - 0.44 * window.innerWidth) / 2;
+	baseLeft = 0.05 * window.innerWidth;
+	baseWidth = 0.66 * window.innerWidth;
+	baseHeight = 0.44 * window.innerWidth;
 	updateIntroPhoto();
 });
 addEventListener("scroll", (event) => {
