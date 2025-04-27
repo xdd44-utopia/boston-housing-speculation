@@ -7,11 +7,16 @@
     <meta name="keywords" content="Photography, gallery, Architecture, Computer Science">
     <meta name="author" content="Chenyue &quot;xdd44&quot; DAI, Zhi-Ray Wang, Yutian He, Kareen El-Sisi">
 
-    <link rel="stylesheet" type="text/css" href="./css/style.css?v=1.2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./css/title.css?v=1.2"/>
+    <link rel="stylesheet" type="text/css" href="./css/intro.css?v=1.2"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.2"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis2.css?v=1.2"/>
     <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.2">
-    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.2" />
-    <link rel="stylesheet" type="text/css" href="./css/vis2.css" />
     <link rel="stylesheet" type="text/css" href="./css/aos.css">
     <link rel="shortcut icon" href="./images/Website icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -26,21 +31,53 @@
 <body>
 
     <div class="container">
-        <h1 style="padding-top: 15vh;">A Realtor's Reality</h1>
-        <h2 style="padding-top: 15vh;">Impact of Boston Housing Speculation on Individuals</h2>
-        <br>
-        <br>
-        <br>
-        <p style="text-align: center;">xdd, Kareem, Ray, Yutian</p>
-        <br>
-        <br>
-        <p style="text-align: center;">With guidance and feedback from the <a href="https://www.mapc.org/" target="_blank">Metropolitan Area Planning Commussion (MAPC)</a></p>
+        <div id="skylineBackground" class="skyline">
+            <svg viewBox="0 0 1920 864">
+                <rect x="0" y="0" width="1920" height="864" fill="#242424"/>
+            </svg>
+        </div>
+        <div id="skyline4" class="skyline">
+            <svg viewBox="0 0 1920 579" fill="#636363">
+                <path d="M1421.69 0.619078V18.0837H1417.32V8.32393H1414.83V18.0837H1412.95V22.7067H1405.46V13.9744H1402.97V22.7067H1376.13V18.5974H1373.63V22.7067H1366.76V40.1713H1353.03V377.137H1222.58V173.724H1117.72V130.063H1088.38V123.899H1062.79V112.598H1059.67V123.899H1043.44V130.063H1005.37V377.137H947.318V228.173H903.625V188.621H877.41V228.173H861.806V377.137H708.258V248.206H614.632V239.474H593.41V248.206H546.596V377.137H338.121V209.167H317.524V190.675H300.047V201.462H265.093V194.785H272.583V158.828H256.355V171.156H227.018V160.883H217.031V130.577H188.319V117.221H174.588V75.614H171.466V117.221H162.104V130.577H134.016V151.123H123.405V171.156H110.298V271.486H110.148V377.137H46.6312V279.54H-38.2562V412.415H-40.355V578.405H65.5711V577.981H1946V377.137H1773.1V116.707H1712.79L1713.81 110.029L1705.07 104.38L1668.24 104.893L1651.39 116.707V377.137H1611.44V247.179H1539.66V377.137H1483.49V40.1711H1465.38V22.7065H1454.15V18.5972H1442.91V22.7065H1426.06V18.0835H1424.81V0.618896L1421.69 0.619078Z"/>
+            </svg>
+        </div>
+        <div id="skyline3" class="skyline">
+            <svg viewBox="0 0 1920 582" fill="#8d8d8d">
+                <path d="M1236.73 5.57032e-05C1227.02 0.000184483 1217.7 3.52088 1210.83 9.78765C1203.96 16.0544 1200.1 24.5539 1200.1 33.4164C1200.1 35.3648 1200.29 37.3093 1200.67 39.2276H1200.1V342.878H1129.48V260.064H963.533V342.878H896.447V0.726955H744.619V196.138H685.477V205.581H649.286V342.878H588.378V292.754H470.976V272.413H400.359V292.754H304.143V321.085H280.31V193.959H178.797V175.071H136.426V193.959H132.013V252.8H41.976V294.206H-41V442.399H-40.5584V581.512H28.7344V581.149H1945.12V580.422H1946V333.434H1928.34V244.809H1926.58V205.748H1944.57C1930.84 202.389 1915.8 200.633 1900.54 200.611C1884.12 200.613 1867.95 202.624 1853.41 206.471C1838.87 210.319 1826.4 215.887 1817.08 222.699H1828.6V244.809H1808.29V262.97H1768.57V342.878H1559.37V173.619H1535.54V167.081H1448.15V173.619H1420.78V342.878H1366.94V55.9358H1365.11C1365.12 55.5729 1365.14 55.2096 1365.14 54.8461C1365.14 50.5082 1364.57 46.2129 1363.47 42.2052C1362.36 38.1976 1360.73 34.5561 1358.69 31.4888C1356.64 28.4215 1354.21 25.9884 1351.54 24.3284C1348.86 22.6685 1346 21.8141 1343.1 21.8142C1342.51 21.8188 1341.92 21.8589 1341.34 21.9342V0H1238.94V0.101115C1238.21 0.0471783 1237.47 0.0135172 1236.73 5.57032e-05Z"/>
+            </svg>
+        </div>
+        <div id="skyline2" class="skyline">
+            <svg viewBox="0 0 1920 450" fill="#333333">
+                <path d="M971.452 -0.00150098V21.0648H956.466V1.45099H950.295V21.0648H945.888V26.8761H921.204V252.798H869.193V81.3586H717.568V117.681H630.295V197.588H547.43V180.881H535.088V160.54H532.851C532.092 155.734 530.409 151.336 527.998 147.854C525.586 144.372 522.544 141.948 519.221 140.86V126.398H518.703L514.778 118.436L511.758 126.398H511.287V140.871C507.964 141.957 504.921 144.379 502.508 147.859C500.095 151.339 498.411 155.735 497.65 160.54H492.774V180.881H471.617V197.588H390.516V260.061H312.059V179.427H213.326V260.061H159.552V177.974H-38.7955V449.298H-40.5582V449.661H1946V449.367H1945.86V198.315H1894.43V207.758H1790.41V186.691H1753.38V207.758H1740.16V177.248H1681.09V164.172H1633.49V177.248H1577.07V281.128H1502.14V196.135H1324.95V232.456H1289.69V202.673H1287.93L1290.13 201.946L1275.58 172.526L1275.08 173.832L1274.7 172.889L1263.78 202.673H1263.24V232.456H1250.9V189.597H1212.11V172.162H1185.67V65.3764H1064.01V204.126H1008.48V26.8754H981.15V21.0641H976.742V-0.00219727L971.452 -0.00150098Z"/>
+            </svg>
+        </div>
+        <div id="skyline1" class="skyline">
+            <svg viewBox="0 0 1920 305" fill="#000000">
+                <path d="M1157.14 0.742188C1157.14 0.742188 1152.56 32.1668 1151.79 42.6062H1136.97C1134.41 29.2334 1129.7 8.1901 1129.7 8.1901V9.98814L1123.63 47.486H1122.22V179.498H1113.49V72.3986H965.688V160.236H946.979V66.2349H922.034V51.8522H877.134V66.2349H838.47V80.6171H787.332V249.614H706.262V47.7427H572.807V131.47H506.079V83.1857H411.913V131.47H400.688V49.2832H262.867V263.593H256.631V25.1414H232.933V13.8403H149.991V25.1414H113.822V263.593H67.0496V67.2616H23.3968V44.1465H-25.2463V67.2616H-32.1056V74.967H-39.5893V305H1946V292.651H1915.46V37.9828H1819.43V56.475H1662.27V42.6059H1627.97V56.475H1619.24V288.292H1588.69V9.21726H1456.48V275.554H1206.41V179.498H1170.86V47.4858H1170.55V44.1465H1169.44L1157.14 0.742188Z"/>
+            </svg>
+        </div>
+        
+        <h1 id="largeTitle">A Realtor's Reality</h1>
+        <h2 id="smallTitle">Impact of Boston Housing Speculation on Individuals</h2>
+        <div id="author">
+            <p id="largeAuthor">xdd, Kareem, Ray, Yutian</p>
+            <p id="smallAuthor">With guidance and feedback from the <a href="https://www.mapc.org/" target="_blank">Metropolitan Area Planning Commussion (MAPC)</a></p>
+        </div>
     </div>
 
 
     <div class="container">
-        <h2>Introduction</h2>
-        <p class="writeup-text">Imagine this scenario. Alex, a fresh MSRED (Master in Real Estate Development) graduate, just accepted a job offer from a real estate company in downtown Boston, and is looking to purchase their first new home! Being a young new real estate agent tasked with presenting Boston's finest housing listings to potential clients, Alex will have to commute to these attractive (and pricey) residential neighborhoods on a daily basis. As Alex navigates Boston's competitive housing market, they're faced with the realities of property speculation that has driven prices ever higher in many neighborhoods. Follow along Alex's journey as they search for a potential new home in Boston, and uncover the impact of market speculation from both both the perspectives of individuals and real estate firms.</p>
+        <div id="introDetector"></div>
+        <div id="introImage">
+            <img src="./images/intro.jpg"/>
+        </div>
+        <h1 id="introTitle">Meet Alex!</h1>
+        <br>
+        <br>
+        <p class="introText">A recent MSRED graduate (Master in Real Estate Development,) Alex has just landed a job at a real estate firm in downtown Boston and is searching for their first home. As a young agent showcasing Boston's top properties, Alex commutes daily to upscale neighborhoods while navigating the city's competitive, speculation-driven market.</p>
+        <br>
+        <br>
+        <p class="introText">Let's follow Alex's journey as an agent and explore the impact of Boston's market speculation on both buyers and real estate firms.</p>
     </div>
 
 
@@ -190,8 +227,10 @@
         </div>
     </div>
     
-    <script src="./js/vis1.js?v=1.2"></script>
+    <script src="./js/title.js?v=1.2"></script>
+    <script src="./js/intro.js?v=1.2"></script>
     <script src="./js/gallery.js?v=1.2"></script>
+    <script src="./js/vis1.js?v=1.2"></script>
     <script src="./js/vis2.js?v=1.0"></script>
 
 

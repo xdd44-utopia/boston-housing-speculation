@@ -1,0 +1,26 @@
+#introDetector {
+    position: absolute;
+    top: 100vh;
+}
+
+#introImage {
+    position: absolute;
+    width: 66vw;
+    height: 44vw;
+    left: 5vw;
+    top: calc((100vh - 44vw) / 2 + 100vh);
+    z-index: 100;
+}
+
+#introImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#introTitle, .introText {
+    margin-left: 73vw;
+    margin-right: 0;
+    width: 25vw;
+    text-align: left;
+}

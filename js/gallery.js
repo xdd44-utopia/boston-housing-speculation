@@ -27,6 +27,14 @@ function setUp() {
 	checkScroll();
 }
 
+document.addEventListener('wheel', function(e) {
+	e.preventDefault();
+	
+	currentPage += e.deltaY > 0 ? 1 : -1;
+	currentPage = Math.min(Math.max(currentPage, 0), numPage - 1);
+	scroll(currentPage);
+}, { passive: false });
+
 function onKeyDown(event) {
 	if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(event.code) > -1) {
 		event.preventDefault();

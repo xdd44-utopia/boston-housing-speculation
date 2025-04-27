@@ -1,0 +1,87 @@
+
+h1 {
+	font-size: 4vw;
+	text-align: center;
+}
+
+h2 {
+	width: 75vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2.5vh;
+}
+
+#largeTitle, #smallTitle, #largeAuthor, #smallAuthor {
+    display: block;
+    position: absolute;
+    text-align: center;
+    width: 100vw;
+    z-index: 10;
+    background-color: #00000000;
+    margin: 0;
+}
+
+#largeTitle {
+    top: 5vh;
+    font-size: 12vh;
+    height: 12vh;
+    line-height: 12vh;
+}
+
+#smallTitle {
+    top: 21.5vh;
+    font-size: 4.5vh;
+    height: 4.5vh;
+    line-height: 4.5vh;
+}
+
+#author {
+    position: absolute;
+    top: 90vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+}
+
+#largeAuthor {
+    top: 0;
+    font-size: 2.5vh;
+    font-weight: bold;
+    height: 2.5vh;
+    line-height: 2.5vh;
+}
+
+#smallAuthor {
+    top: 4.5vh;
+    font-size: 2vh;
+    height: 2vh;
+    line-height: 2vh;
+}
+
+#smallAuthor a {
+    background-color: black;
+}
+
+#smallAuthor a:hover {
+    color: black;
+    background-color: white;
+}
+
+.skyline {
+    position: absolute;
+    width: 100%;
+    bottom: 10vh;
+    z-index: 0;
+    background-color: #00000000;
+}
+
+.skyline svg {
+    width: 100%;
+    z-index: 0;
+    background-color: #00000000;
+}
+
+#skylineBackground {
+    height: 90vh;
+}
