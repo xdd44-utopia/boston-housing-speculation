@@ -2,7 +2,7 @@ var isFrameOut = true;
 
 const texts = [
 	"Some oversea clients are calling you...",
-	"In Downtown Boston, xx% of high-end housing stocks are owned by foreign-investors.",
+	"In Downtown Boston, 1 in 5 homes are owned by investors.",
 	"This type of home-buyers are treating properties as commodities, and usually they don't even live here...",
 	"Get ready to enter your virtual meeting and give a room tour to these investors..."
 ];

@@ -14,3 +14,32 @@
     height: 100%;
     object-fit: cover;
 }
+
+#questionImage {
+    display: block;
+    position: absolute;
+    width: 20vw;
+    height: auto;
+    left: 2.5vw;
+    top: 2.5vh;
+    z-index: 100;
+    background-color: #00000000;
+}
+
+#questionImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #00000000;
+
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flashing {
+    0%   {opacity: 1;}
+    50%  {opacity: 0;}
+    100% {opacity: 1;}
+}
