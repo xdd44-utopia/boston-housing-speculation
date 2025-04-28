@@ -1,172 +1,192 @@
-#desk-viz-container {
-  background-color: transparent !important;
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
+#vis3Title {
+	position: absolute;
+	z-index: 2;
+
+	width: 24vw;
+	line-height: 3.5vw;
+	left: 72vw;
+
+	text-align: left;
+	font-size: 3vw;
+	line-height: 3.5vw;
 }
-  
+
+#vis3Text {
+	position: absolute;
+	z-index: 2;
+
+	top: 15vh;
+	left: 72vw;
+	width: 24vw;
+}
+
+#desk-container {
+	position: absolute;
+    width: 70vw;
+    height: 100vh;
+}
+
 #desk-scene {
-  position: relative;
-  height: 550px;
+	width: 100%;
+	height: 100%;
 }
 
 
 #desk-bg {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  /* border-radius: 8px; */
-  z-index: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
 }
 
 #desk-svg {
-  background-color: transparent !important;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-  /* border: 2px dashed lime; */
+	background-color: transparent !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
+	/* border: 2px dashed lime; */
 }
 
 
 #desk-ui {
-  position: absolute;
-  top: 20px;   
-  left: 20px;
-  z-index: 10;
-  background-color: transparent; 
-  padding: 8px 12px;
-  font-size: 14px;
+	position: absolute;
+	top: 20px;   
+	left: 20px;
+	z-index: 10;
+	background-color: transparent; 
+	padding: 8px 12px;
+	font-size: 14px;
 }
 
 #desk-ui label {
-  color: #ddd; 
-  font-weight: bold;
-  margin-bottom: 8px; 
-  display: block; 
+	color: #ddd; 
+	font-weight: bold;
+	margin-bottom: 8px; 
+	display: block; 
 }
 
 #price-bar-container {
-  background-color: transparent !important;
-  position: absolute;
-  top: 60px;
-  right: 35px;
-  height: 250px;
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  z-index: 10;
+	background-color: transparent !important;
+	position: absolute;
+	top: 60px;
+	right: 35px;
+	height: 250px;
+	width: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	z-index: 10;
 }
 
 #price-bar-bg {
-  width: 15px;
-  height: 180px;
-  background: linear-gradient(to top, #fff8b3, #e63946) !important;
-  position: relative;
-  margin-bottom: 8px;
-  border-radius: 4px;
-  border: 2px solid black;  
+	width: 15px;
+	height: 180px;
+	background: linear-gradient(to top, #fff8b3, #e63946) !important;
+	position: relative;
+	margin-bottom: 8px;
+	border-radius: 4px;
+	border: 2px solid black;  
 }
 
 #price-arrow {
-  width: 1;
-  height: 1;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 8px solid black;
-  position: absolute;
-  left: -5px;
+	width: 1;
+	height: 1;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 8px solid black;
+	position: absolute;
+	left: -5px;
 }
 
 .price-label-tag {
-  background: transparent !important;
-  color: black;
-  font-size: 18px;
-  position: absolute;
-  right: 25px;
+	background: transparent !important;
+	color: black;
+	font-size: 18px;
+	position: absolute;
+	right: 25px;
 }
 
 #price-label {
-  background: transparent !important;
-  margin-top: 4px;
-  padding: 2px 2px;
-  text-align: center;
-  color: black;
-  font-size: 18px;
-  /* font-weight: bold; */
-  line-height: 1.2;
-  width: 100%;
+	background: transparent !important;
+	margin-top: 4px;
+	padding: 2px 2px;
+	text-align: center;
+	color: black;
+	font-size: 18px;
+	/* font-weight: bold; */
+	line-height: 1.2;
+	width: 100%;
 }
 
 #price-label span {
-  background: none !important;
-  color: black !important;
+	background: none !important;
+	color: black !important;
 }
 
 #price-amount {
-  background: transparent !important;
-  font-weight: bold;
-  font-size: 18px;
-  color: black;
+	background: transparent !important;
+	font-weight: bold;
+	font-size: 18px;
+	color: black;
 }
 
 #city-select {
-  background-color: #f0f0f0;
-  color: #000;
-  border: 1px solid #ccc;
-  /* font-family: monospace; */
-  padding: 4px;
-  border-radius: 4px;
-  font-size: 14px;
+	background-color: #f0f0f0;
+	color: #000;
+	border: 1px solid #ccc;
+	/* font-family: monospace; */
+	padding: 4px;
+	border-radius: 4px;
+	font-size: 14px;
 }
 
 #city-list {
-  height: 500px;
-  width: 150px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border: 1px solid #bbb;
-  background-color: #f9f7f1; 
-  padding: 4px;
-  font-size: 11px;
-  line-height: 1.1;
-  font-family: 'Noto Sans', sans-serif; 
-  border-radius: 6px;
-  color: #333;
+	height: 500px;
+	width: 150px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: 1px solid #bbb;
+	background-color: #f9f7f1; 
+	padding: 4px;
+	font-size: 11px;
+	line-height: 1.1;
+	font-family: 'Noto Sans', sans-serif; 
+	border-radius: 6px;
+	color: #333;
 }
 
 .city-entry {
-  padding: 2px 4px;
-  font-size: 12px;
-  line-height: 1.2;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
-  background-color: transparent; 
-  color: #333;
+	padding: 2px 4px;
+	font-size: 12px;
+	line-height: 1.2;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+	transition: background-color 0.2s, color 0.2s;
+	background-color: transparent; 
+	color: #333;
 }
 
 .city-entry:hover:not(.selected) {
-  background-color: #ece9df; 
-  color: #111;
+	background-color: #ece9df; 
+	color: #111;
 }
 
 .city-entry.selected {
-  background-color: #ddd4c6; 
-  color: #000;
-  font-weight: bold;
+	background-color: #ddd4c6; 
+	color: #000;
+	font-weight: bold;
 }
 
 #city-paper {
-  /* background-color: #f9f7f1;  */
-  padding: 8px;
-  border-radius: 6px;
+	/* background-color: #f9f7f1;  */
+	padding: 8px;
+	border-radius: 6px;
 }
 
 

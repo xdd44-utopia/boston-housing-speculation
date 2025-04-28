@@ -26,13 +26,13 @@ addEventListener("scroll", (event) => {
 
 function updateIntroPhoto() {
 	const top = introDetector.getBoundingClientRect().top;
-	const scale = -0.004;
+	const scale = 6;
 	if (top < 0) {
-		introImage.style.top = `${baseTop + top * 0.16}px`;
-		introImage.style.left = `${baseLeft + top * 3.1}px`;
-		introImage.style.width = `${baseWidth * (top * scale + 1)}px`;
-		introImage.style.height = `${baseHeight * (top * scale + 1)}px`;
-		introImage.style.opacity = `${1 + top / 0.96 / window.innerHeight}`;
+		introImage.style.top = `${baseTop + top * 0.5}px`;
+		introImage.style.left = `${baseLeft + top * 2.7}px`;
+		introImage.style.width = `${baseWidth * (- top * scale / transitionBaseWidth + 1)}px`;
+		introImage.style.height = `${baseHeight * (- top * scale / transitionBaseHeight + 1)}px`;
+		introImage.style.opacity = `${1 + top / 0.9 / window.innerHeight}`;
 	}
 	introImage.style.display = top < - 0.96 * window.innerHeight ? "none" : "block";
 }

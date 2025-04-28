@@ -1,0 +1,36 @@
+#vis5Title {
+	position: absolute;
+	z-index: 2;
+
+	width: 24vw;
+	line-height: 3.5vw;
+	left: 72vw;
+
+	text-align: left;
+	font-size: 3vw;
+	line-height: 3.5vw;
+}
+
+#vis5Text {
+	position: absolute;
+	z-index: 2;
+
+	top: 30vh;
+	left: 72vw;
+	width: 24vw;
+}
+
+#vis5Image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70vw;
+	height: 100vh;
+	background-color: black;
+}
+
+#vis5Image img {
+	display: block;
+	width: 70vw;
+	margin-top: calc((100vh - 70vw / 2544 * 1764) / 2);
+}

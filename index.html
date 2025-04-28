@@ -11,13 +11,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.2">
-    <link rel="stylesheet" type="text/css" href="./css/title.css?v=1.2"/>
-    <link rel="stylesheet" type="text/css" href="./css/intro.css?v=1.2"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.2"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis2.css?v=1.2"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis3.css?v=1.2"/>
-    <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.2">
+    <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.3">
+    <link rel="stylesheet" type="text/css" href="./css/title.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/intro.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis2.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis3.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis4.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis5.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/transition.css?v=1.3"/>
+    <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.3">
     <link rel="stylesheet" type="text/css" href="./css/aos.css">
     <link rel="shortcut icon" href="./images/Website icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -121,11 +124,11 @@
         </div>
     </div>
 
-    <div class="container" id="who-owns-it-section">
-        <h2>Who Owns It?!</h2>
-        <p class="writeup-text">Select a neighborhood to see owner-occupancy vs. corporate ownership, and the average home price.</p>
+    <div class="container">
+        <h1 id="vis3Title">Who Owns It?!</h1>
+        <p id="vis3Text">Select a neighborhood to see owner-occupancy vs. corporate ownership, and the average home price.</p>
       
-        <div id="desk-viz-container">
+        <div id="desk-container">
             
           <div id="desk-scene">
             <img id="desk-bg" src="./images/desk_scene_bg.png" alt="Desk background" />
@@ -147,29 +150,38 @@
           </div>
         </div>
       </div>
-      
+    </div>
             
 
     <div class="container">
-        <h2>Is Anyone Home?</h2>
-        <p class="writeup-text">[Placeholder for vacancy rates visualization - doors]</p>
+        <h1 id="vis4Title">Is Anyone Home?</h1>
+        <p id="vis4Text">Diving into the vacancy rates of Boston's residences.</p>
+        <div id="vis4Container">
+            <video autoplay muted loop playsinline>
+                <source src="./images/doors_animation.mp4" type="video/mp4">
+                <source src="./images/doors_animation.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </div>
 
     <div class="container">
-        <h2>If You Can't Beat 'Em, Join 'Em!</h2>
-        <p class="writeup-text">[Placeholder for Alex's villain arc - visualization for flipping]</p>
+        <div id="transitionDetector"></div>
+        <div id="transitionImage">
+            <img src="./images/intro.jpg"/>
+        </div>
     </div>
 
     <div class="container">
-
+        <h1 id="vis5Title">If you can't beat 'em, join 'em!</h1>
+        <p id="vis5Text">Frustrated, you decided to look at the price difference in residential sales transactions across cities.<br><br>You embark on a villain arc, and decide to find the best property not just to live in, but also to flip! </p>
+        <div id="vis5Image">
+            <img src="./images/flipping.jpg"/>
+        </div>
     </div>
 
     <div class="container">
-
-    </div>
-
-    <div class="container">
-        
+        <h1>Acknowledgement xxx</h1>
     </div>
 
     <div id="progressBarContainer">
@@ -186,12 +198,13 @@
         </div>
     </div>
     
-    <script src="./js/title.js?v=1.2"></script>
-    <script src="./js/intro.js?v=1.2"></script>
-    <script src="./js/gallery.js?v=1.2"></script>
-    <script src="./js/vis1.js?v=1.2"></script>
-    <script src="./js/vis2.js?v=1.2"></script>
-    <script src="./js/vis3.js?v=1.2"></script>
+    <script src="./js/title.js?v=1.3"></script>
+    <script src="./js/intro.js?v=1.3"></script>
+    <script src="./js/gallery.js?v=1.3"></script>
+    <script src="./js/vis1.js?v=1.3"></script>
+    <script src="./js/vis2.js?v=1.3"></script>
+    <script src="./js/vis3.js?v=1.3"></script>
+    <script src="./js/transition.js?v=1.3"></script>
 
 
 </body>

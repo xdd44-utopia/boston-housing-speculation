@@ -3,10 +3,10 @@ var num = 0;
 var lastScroll = 0;
 
 numIntroPage = 2;
-numPage = 6;
+numPage = 9;
 var barLength = 100 / (numPage - numIntroPage);
 
-titleTexts = ['Affordability', 'Virtual Tour', 'Ownership', 'Vacancy Rate']
+titleTexts = ['Affordability', 'Virtual Tour', 'Ownership', 'Vacancy Rate', '!?#%', 'Flipping Trend', 'Acknowledgement']
 
 
 document.onkeydown = onKeyDown;
@@ -28,11 +28,17 @@ function setUp() {
 }
 
 document.addEventListener('wheel', function(e) {
-	e.preventDefault();
-	
-	currentPage += e.deltaY > 0 ? 1 : -1;
-	currentPage = Math.min(Math.max(currentPage, 0), numPage - 1);
-	scroll(currentPage);
+
+	const isInsideScrollableMenu = e.target.closest('#city-list') !== null;
+
+	if (!isInsideScrollableMenu) {
+		e.preventDefault();
+		
+		currentPage += e.deltaY > 0 ? 1 : -1;
+		currentPage = Math.min(Math.max(currentPage, 0), numPage - 1);
+		scroll(currentPage);
+	}
+
 }, { passive: false });
 
 function onKeyDown(event) {
