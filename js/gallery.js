@@ -1,6 +1,7 @@
+window.scrollLocked = false;
+
 var currentPage = 0;
 var num = 0;
-var lastScroll = 0;
 
 numIntroPage = 2;
 numPage = 9;
@@ -27,18 +28,64 @@ function setUp() {
 	checkScroll();
 }
 
+let lastWheelTime = 0;
+const wheelThreshold = 200;
+const trackpadThreshold = 1600;
+
 document.addEventListener('wheel', function(e) {
 
-	const isInsideScrollableMenu = e.target.closest('#city-list') !== null;
+	if (window.scrollLocked) {
+		return;
+	}
+	e.preventDefault();
 
-	if (!isInsideScrollableMenu) {
-		e.preventDefault();
-		
+	var isTrackpad = false;
+	if (e.wheelDeltaY) {
+		if (e.wheelDeltaY === (e.deltaY * -3)) {
+		isTrackpad = true;
+		}
+	}
+	else if (e.deltaMode === 0) {
+		isTrackpad = true;
+	}
+	
+	const now = Date.now();
+	if (now - lastWheelTime > (isTrackpad ? trackpadThreshold : wheelThreshold)) {
 		currentPage += e.deltaY > 0 ? 1 : -1;
 		currentPage = Math.min(Math.max(currentPage, 0), numPage - 1);
 		scroll(currentPage);
+		lastWheelTime = now;
 	}
 
+}, { passive: false });
+
+var touchStartY;
+
+document.addEventListener('touchstart', function(e) {
+	if (!window.scrollLocked) {
+		touchStartY = e.touches[0].clientY;
+		e.preventDefault();
+	}
+}, { passive: false });
+
+document.addEventListener('touchmove', function(e) {
+	if (window.scrollLocked) {
+		return;
+	}
+	e.preventDefault();
+
+	const now = Date.now();
+	if (now - lastWheelTime > wheelThreshold) {
+		const touchY = e.touches[0].clientY;
+		const diff = touchStartY - touchY;
+		if (Math.abs(diff) > 20) {
+			currentPage += diff > 0 ? 1 : -1;
+			currentPage = Math.min(Math.max(currentPage, 0), numPage - 1);
+			scroll(currentPage);
+			touchStartY = touchY;
+		}
+		lastWheelTime = now;
+	}
 }, { passive: false });
 
 function onKeyDown(event) {
