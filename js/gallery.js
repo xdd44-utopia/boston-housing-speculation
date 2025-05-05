@@ -21,8 +21,18 @@ addEventListener("resize", (event) => {
 
 function setUp() {
 	num = document.getElementsByClassName('container').length;
-	document.getElementById('upArrow').onclick = scrollUp;
-	document.getElementById('downArrow').onclick = scrollDown;
+	document.getElementById('upArrow').onclick = function() {
+		if (currentPage > 0) {
+			currentPage--;
+			scroll(currentPage);
+		}
+	};
+	document.getElementById('downArrow').onclick = function() {
+		if (currentPage < num - 1) {
+			currentPage++;
+			scroll(currentPage);
+		}
+	};
 	currentPage = 0;
 	document.getElementById('currentTitle').style.height = `${barLength}%`;
 	checkScroll();
@@ -32,12 +42,28 @@ let lastWheelTime = 0;
 const wheelThreshold = 200;
 const trackpadThreshold = 1600;
 
-document.addEventListener('wheel', function(e) {
+window.scrollUp = function() {
+	if (currentPage > 0) {
+		currentPage--;
+		scroll(currentPage);
+		lastWheelTime = now;
+	}
+};
 
+window.scrollDown = function() {
+	if (currentPage < num - 1) {
+		currentPage++;
+		scroll(currentPage);
+		lastWheelTime = now;
+	}
+};
+
+window.addEventListener('wheel', function(e) {
+
+	e.preventDefault();
 	if (window.scrollLocked) {
 		return;
 	}
-	e.preventDefault();
 
 	var isTrackpad = false;
 	if (e.wheelDeltaY) {
@@ -57,7 +83,7 @@ document.addEventListener('wheel', function(e) {
 		lastWheelTime = now;
 	}
 
-}, { passive: false });
+}, { passive: false, capture: true });
 
 var touchStartY;
 
@@ -95,31 +121,17 @@ function onKeyDown(event) {
 	var event = event || window.event;
 	switch (event.keyCode) {
 		case 38:
-			scrollUp();
+			window.scrollUp();
 			break;
 		case 87:
-			scrollUp();
+			window.scrollUp();
 			break;
 		case 40:
-			scrollDown();
+			window.scrollDown();
 			break;
 		case 83:
-			scrollDown();
+			window.scrollDown();
 			break;
-	}
-}
-
-function scrollUp() {
-	if (currentPage > 0) {
-		currentPage--;
-		scroll(currentPage);
-	}
-}
-
-function scrollDown() {
-	if (currentPage < num - 1) {
-		currentPage++;
-		scroll(currentPage);
 	}
 }
 

@@ -2,7 +2,7 @@ let properties = [];
 
 mapboxgl.accessToken = 'pk.eyJ1IjoieGRkNDQiLCJhIjoiY205MWllMWk1MDFhdjJ3b2pyZGR2aDZkeiJ9.0hs7-AJr3fOz-izEVbmu-g';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoieGRkNDQiLCJhIjoiY205MWR3dXU0MDBlcDJqb2hzc3cybmtkZSJ9.qXz-Sr2aJPDbGXfSqIEB2w';
+// mapboxgl.accessToken = 'pk.eyJ1IjoieGRkNDQiLCJhIjoiY205MWR3dXU0MDBlcDJqb2hzc3cybmtkZSJ9.qXz-Sr2aJPDbGXfSqIEB2w';
 
 let originalWorkingCoords = [-71.07641125665472, 42.351252717488386];
 let workingCoords = [-71.07641125665472, 42.351252717488386];
