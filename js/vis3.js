@@ -6,115 +6,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 	// Load and bind data
-	d3.csv("./files/ownership_and_vacancy_over_time.csv").then(files => {
-		console.log("Loaded rows:", files.length);
-		console.log(files[0]);
+	d3.csv("./files/ownership.csv").then(function(data) {
 
-		//group by city
-		const cityMap = new Map();
-		files.forEach(d => {
-			if (!cityMap.has(d.city)) {
-				cityMap.set(d.city, {
-					city: d.city,
-					corporateSales: +d.corporate_sales,
-					totalSales: +d.total_sales
-				});
+		const cities = Array.from(data).map(d => ({
+			city: d.city,
+			corporateRatio: +d.corporate_sale_ratio,
+			avgPrice: +d.weighted_avg_price
+		}));
+		cities.sort((a, b) => a.corporateRatio - b.corporateRatio);
+			
+		const priceExtent = d3.extent(cities, d => d.avgPrice); 
+		const priceScale = d3.scaleLog()
+				.domain(priceExtent)
+				.range([170, 10]);  
+
+		let currentCityIndex = 0;
+		let dir = 1;
+		updateViz(cities[currentCityIndex].city);
+
+		function autoLoopCities() {
+			currentCityIndex += dir;
+			if (currentCityIndex == 0 || currentCityIndex == cities.length - 1) {
+				dir = -dir;
+			}
+			updateViz(cities[currentCityIndex].city);
+		}
+		
+		var loopInterval = setInterval(autoLoopCities, 50);
+
+		document.getElementById("searchCityInput").addEventListener('input', (evt) => {
+			const inputValue = document.getElementById("searchCityInput").value.trim().toLowerCase();
+			
+			if (inputValue === "") {
+				if (!loopInterval) {
+					loopInterval = setInterval(autoLoopCities, 50);
+				}
+				return;
+			}
+			
+			const index = cities.findIndex(c => c.city.toLowerCase() === inputValue);
+			
+			if (index >= 0) {
+				if (loopInterval) {
+					clearInterval(loopInterval);
+					loopInterval = null;
+				}
+				updateViz(cities[index].city);
 			} else {
-				const existing = cityMap.get(d.city);
-				existing.corporateSales += +d.corporate_sales;
-				existing.totalSales += +d.total_sales;
+				if (!loopInterval) {
+					loopInterval = setInterval(autoLoopCities, 50);
+				}
 			}
 		});
 
-			// create array with corporate ratio and sort
-			const cities = Array.from(cityMap.values()).map(d => ({
-				city: d.city,
-				corporateRatio: d.corporateSales / d.totalSales
-			}));
-			cities.sort((a, b) => a.corporateRatio - b.corporateRatio);
-			
-			//scroll and mouseover
-			const cityList = document.getElementById("city-list");
-
-			cities.forEach(({ city, corporateRatio }) => {
-				const cityDiv = document.createElement("div");
-				cityDiv.classList.add("city-entry"); 
-				cityDiv.textContent = `${city}`;
-
-				cityDiv.addEventListener("mouseenter", () => {
-					const allCities = cityList.querySelectorAll(".city-entry");
-					allCities.forEach(div => div.classList.remove("selected"));
-					cityDiv.classList.add("selected");
-					
-					updateViz(city);
-				});
-
-				cityList.appendChild(cityDiv);
-			});
-
-			
-			// define price scale
-			const priceExtent = d3.extent(files, d => +d.avg_price); 
-
-			const priceScale = d3.scaleLog()
-					.domain(priceExtent)
-					.range([170, 10]);  
-	
-
-			//auto scroll
-			let scrollInterval = null;
-
-			cityList.addEventListener("mousemove", (event) => {
-				const bounds = cityList.getBoundingClientRect();
-				const mouseY = event.clientY - bounds.top;
-
-				const scrollThreshold = 40; 
-				const scrollSpeed = 5; 
-
-				clearInterval(scrollInterval); 
-
-				if (mouseY < scrollThreshold) {
-					scrollInterval = setInterval(() => {
-						cityList.scrollTop -= scrollSpeed;
-					}, 16); // ~60fps
-				} else if (mouseY > bounds.height - scrollThreshold) {
-					scrollInterval = setInterval(() => {
-						cityList.scrollTop += scrollSpeed;
-					}, 16);
-				}
-			});
-
-			cityList.addEventListener("mouseleave", () => {
-				clearInterval(scrollInterval);
-			});
-
-			updateViz(cities[0].city);
-
-
 		function updateViz(city) {
 
-			const cityRows = files.filter(row => row.city === city);
-			if (cityRows.length === 0) return;
+			const index = cities.findIndex(c => c.city === city);
+			const corporateRatio = cities[index].corporateRatio;
+			const ownerRatio = 1 - corporateRatio;
+			const avgPrice = cities[index].avgPrice;
 
-			const totalCorporateSales = cityRows.reduce((sum, d) => sum + (+d.corporate_sales), 0);
-			const totalOwnerOccSales = cityRows.reduce((sum, d) => sum + (+d.owner_occ_sales), 0);
-			const totalSales = cityRows.reduce((sum, d) => sum + (+d.total_sales), 0);
-			const avgPrice = cityRows.reduce((sum, d) => sum + (+d.avg_price), 0) / cityRows.length;
-
-			const corporateRatio = totalCorporateSales / totalSales;
-			const ownerRatio = totalOwnerOccSales / totalSales;
-
-			const priceAmount = document.getElementById("price-amount");
-			if (priceAmount) {
-					priceAmount.textContent = `$${Math.round(avgPrice).toLocaleString()}`;
-			}
+			document.getElementById("vis3CityName").innerText = `Neighborhood: ${city}`;
+			document.getElementById("price-amount").textContent = `$${Math.round(avgPrice).toLocaleString()}`;
 
 			arrow.style.top = `${priceScale(avgPrice)}px`;
 
 			svg.selectAll("*").remove();
-
-			const viewBoxWidth = 800;
-			const viewBoxHeight = 400;
 
 			const tileWidth = 400;
 			const tileHeight = 30;
@@ -180,11 +137,3 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
-
-document.getElementById("city-list").addEventListener("mouseenter", (event) => {
-	window.scrollLocked = true;
-})
-
-document.getElementById("city-list").addEventListener("mouseleave", (event) => {
-	window.scrollLocked = false;
-})

@@ -20,6 +20,45 @@
 	width: 24vw;
 }
 
+#vis3CityName {
+	position: absolute;
+	z-index: 2;
+
+	top: 4vh;
+	left: 3vw;
+	width: 24vw;
+
+	color: black;
+	background-color: #00000000;
+}
+
+#searchCityForm {
+	position: absolute;
+	z-index: 2;
+
+	bottom: 10vh;
+	left: 72vw;
+	width: 24vw;
+}
+
+#searchCityForm label {
+	width: 100%;
+	font-size: 1.25vw;
+}
+
+#searchCityForm input {
+	margin-top: 1vw;
+	padding: 5px;
+	width: 100%;
+	font-size: 1.25vw;
+	color: white;
+	background-color: #000000;
+	opacity: 0.8;
+	border: 0;
+}
+
+/* ############################### */
+
 #desk-container {
 	position: absolute;
     width: 70vw;
@@ -53,28 +92,11 @@
 }
 
 
-#desk-ui {
-	position: absolute;
-	top: 20px;   
-	left: 20px;
-	z-index: 10;
-	background-color: transparent; 
-	padding: 8px 12px;
-	font-size: 14px;
-}
-
-#desk-ui label {
-	color: #ddd; 
-	font-weight: bold;
-	margin-bottom: 8px; 
-	display: block; 
-}
-
 #price-bar-container {
 	background-color: transparent !important;
 	position: absolute;
-	top: 60px;
-	right: 35px;
+	top: 4vh;
+	right: 3vw;
 	height: 250px;
 	width: 100px;
 	display: flex;
@@ -135,59 +157,3 @@
 	font-size: 18px;
 	color: black;
 }
-
-#city-select {
-	background-color: #f0f0f0;
-	color: #000;
-	border: 1px solid #ccc;
-	/* font-family: monospace; */
-	padding: 4px;
-	border-radius: 4px;
-	font-size: 14px;
-}
-
-#city-list {
-	height: 500px;
-	width: 150px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	border: 1px solid #bbb;
-	background-color: #f9f7f1; 
-	padding: 4px;
-	font-size: 11px;
-	line-height: 1.1;
-	font-family: 'Noto Sans', sans-serif; 
-	border-radius: 6px;
-	color: #333;
-}
-
-.city-entry {
-	padding: 2px 4px;
-	font-size: 12px;
-	line-height: 1.2;
-	border-bottom: 1px solid #ddd;
-	cursor: pointer;
-	transition: background-color 0.2s, color 0.2s;
-	background-color: transparent; 
-	color: #333;
-}
-
-.city-entry:hover:not(.selected) {
-	background-color: #ece9df; 
-	color: #111;
-}
-
-.city-entry.selected {
-	background-color: #ddd4c6; 
-	color: #000;
-	font-weight: bold;
-}
-
-#city-paper {
-	/* background-color: #f9f7f1;  */
-	padding: 8px;
-	border-radius: 6px;
-}
-
-
-

@@ -29,7 +29,7 @@
     <script src="./js/jquery.js"></script>
     <script src="./js/aos.js"></script>
 
-    <title>FP3 | 11.C85</title>
+    <title>A Realtor's Reality: Impact of Boston Housing Speculation on Individuals</title>
 </head>
 
 <body>
@@ -133,18 +133,20 @@
 
     <div class="container">
         <h1 id="vis3Title">Who Owns It?!</h1>
-        <p id="vis3Text">Select a neighborhood to see owner-occupancy vs. corporate ownership, and the average home price.</p>
+        <p id="vis3Text">Search a neighborhood (city) to see owner-occupancy vs. corporate ownership, and the average home price.</p>
+
+		<form id="searchCityForm">
+			<label>Search your neighborhood: </label>
+            <br>
+			<input type="text" id="searchCityInput">
+		</form>
       
         <div id="desk-container">
             
           <div id="desk-scene">
             <img id="desk-bg" src="./images/desk_scene_bg.png" alt="Desk background" />
             <svg id="desk-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet"></svg>
-            <div id="desk-ui">
-                <div id="city-paper">
-                    <label for="city-select">Choose a city:</label>
-                <div id="city-list"></div>
-            </div>
+            <p id="vis3CityName">Canton</p>
           </div>
           <div id="price-bar-container">
             <div id="price-bar-bg">
