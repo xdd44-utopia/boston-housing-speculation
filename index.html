@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="./css/vis3.css?v=1.4"/>
     <link rel="stylesheet" type="text/css" href="./css/vis4.css?v=1.4"/>
     <link rel="stylesheet" type="text/css" href="./css/vis5.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/transition.css?v=1.4"/>
+    <link rel="stylesheet" type="text/css" href="./css/transition1.css?v=1.4"/>
+    <link rel="stylesheet" type="text/css" href="./css/transition2.css?v=1.4"/>
     <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.4">
     <link rel="stylesheet" type="text/css" href="./css/aos.css">
     <link rel="shortcut icon" href="./images/Website icon.png">
@@ -175,12 +176,25 @@
     </div>
 
     <div class="container">
-        <div id="transitionDetector"></div>
-        <div id="transitionImage">
+        <div id="transition1Detector"></div>
+        <div id="transition1Image">
             <img src="./images/intro.jpg"/>
         </div>
-        <div id="questionImage">
-            <img src="./images/questionMark.png"/>
+        <div class="bubble" id="bubble1">
+            <img src="./images/textBubbles/singleBubble.png"/>
+            <p class="permMarker">What a frustrating day!</p>
+        </div>
+        <div class="bubble" id="bubble2">
+            <img src="./images/textBubbles/doubleBubble.png"/>
+            <p class="permMarker" id="bubbleText1">I can't afford anything I sell...</p>
+            <p class="permMarker" id="bubbleText2">...How can I flip this situation around?</p>
+        </div>
+        <div class="bubble" id="bubble3">
+            <img src="./images/smileFace.png"/>
+        </div>
+        <div class="bubble" id="bubble4">
+            <img src="./images/textBubbles/computerBubble.png"/>
+            <p class="permMarker">Let's play a game!</p>
         </div>
     </div>
 
@@ -189,6 +203,16 @@
         <p id="vis5Text">Frustrated, you decided to look at the price difference in residential sales transactions across cities.<br><br>You embark on a villain arc, and decide to find the best property not just to live in, but also to flip! </p>
         <div id="vis5Image">
             <img src="./images/flipping.jpg"/>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="transition2Detector"></div>
+        <div id="transition2Image">
+            <img src="./images/intro.jpg"/>
+        </div>
+        <div id="questionImage">
+            <img src="./images/questionMark.png"/>
         </div>
     </div>
 
@@ -216,7 +240,8 @@
     <script src="./js/vis1.js?v=1.4"></script>
     <script src="./js/vis2.js?v=1.4"></script>
     <script src="./js/vis3.js?v=1.4"></script>
-    <script src="./js/transition.js?v=1.4"></script>
+    <script src="./js/transition1.js?v=1.4"></script>
+    <script src="./js/transition2.js?v=1.4"></script>
 
 
 </body>

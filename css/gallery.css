@@ -1,12 +1,21 @@
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: "Noto Sans", sans-serif;
-    background-color: #242424;
-    scroll-behavior: smooth;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+	box-sizing: border-box;
+	font-family: "Noto Sans", sans-serif;
+	background-color: #242424;
+	scroll-behavior: smooth;
+}
+
+@font-face {
+	font-family: "permanentMarker";
+	src: url("../files/PermanentMarker-Regular.ttf");
+}
+
+.permMarker {
+	font-family: "permanentMarker";
 }
 
 html {

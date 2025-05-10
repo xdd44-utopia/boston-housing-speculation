@@ -89,7 +89,9 @@ function resetSequence() {
 	textDisplay.textContent = texts[currentTextIndex];
 	textDisplay.style.opacity = 1;
 	meetingInterface.style.display = 'none';
-	tourIframe.src = tourPorperties[currentTourIndex];
+	if (tourIframe.src != tourPorperties[currentTourIndex]) {
+		tourIframe.src = tourPorperties[currentTourIndex];
+	}
 	document.getElementById('nextTourButton').innerText = "Next Property";
 	
 	if (tourEmojiTimeoutID) {

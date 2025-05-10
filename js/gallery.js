@@ -4,10 +4,10 @@ var currentPage = 0;
 var num = 0;
 
 numIntroPage = 2;
-numPage = 9;
+numPage = 10;
 var barLength = 100 / (numPage - numIntroPage);
 
-titleTexts = ['Affordability', 'Virtual Tour', 'Ownership', 'Vacancy Rate', '!?#%', 'Flipping Trend', 'Acknowledgement']
+titleTexts = ['Affordability', 'Virtual Tour', 'Ownership', 'Vacancy Rate', '!?#%', 'Flipping Trend', '!?#%', 'Acknowledgement']
 
 
 document.onkeydown = onKeyDown;
@@ -46,7 +46,7 @@ window.scrollUp = function() {
 	if (currentPage > 0) {
 		currentPage--;
 		scroll(currentPage);
-		lastWheelTime = now;
+		lastWheelTime = Date.now();
 	}
 };
 
@@ -54,7 +54,7 @@ window.scrollDown = function() {
 	if (currentPage < num - 1) {
 		currentPage++;
 		scroll(currentPage);
-		lastWheelTime = now;
+		lastWheelTime = Date.now();
 	}
 };
 

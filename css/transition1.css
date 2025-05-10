@@ -1,0 +1,135 @@
+#transition1Image {
+    display: block;
+    position: absolute;
+    width: 98vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 100;
+
+    cursor: pointer;
+}
+
+#transition1Image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#questionImage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #00000000;
+
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flashing {
+    0%   {opacity: 1;}
+    50%  {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.bubble {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    background-color: #00000000;
+}
+
+.bubble img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #00000000;
+}
+
+.bubble p {
+    position: absolute;
+    display: block;
+    width: 100%;
+
+    color: black;
+    background-color: #00000000;
+    text-align: center;
+}
+
+#bubble1 {
+    display: none;
+    width: 23.5vw;
+    height: 34vh;
+    left: 2.5vw;
+    top: 2.5vh;
+}
+
+#bubble1 p {
+    left: 0;
+    top: 5%;
+    width: 100%;
+
+    font-size: 2.8vw;
+}
+
+#bubble2 {
+    display: none;
+    width: 24vw;
+    height: 50vh;
+    left: 2vw;
+    top: 2.5vh;
+}
+
+#bubbleText1 {
+    left: 35%;
+    top: 10%;
+    width: 60%;
+
+    font-size: 3.6vh;
+}
+
+#bubbleText2 {
+    left: 5%;
+    top: 64%;
+    width: 64%;
+
+    font-size: 3vh;
+}
+
+#bubble3 {
+    display: none;
+    width: max(10vw, 15vh);
+    height: auto;
+    left: 54vw;
+    top: min(29vh, calc(48.5vh - 13.3vw));
+
+    animation-name: shaking;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shaking {
+    0%   {padding: 0;}
+    50%  {padding: 5px;}
+    100% {padding: 0;}
+}
+
+#bubble4 {
+    display: none;
+    width: max(30vw, 10vh);
+    height: auto;
+    left: 64vw;
+    top: min(14vh, calc(33.5vh - 13.3vw));
+}
+
+#bubble4 p {
+    left: 32%;
+    top: 22%;
+    width: 60%;
+
+    font-size: 2.5vw;
+    text-align: center;
+}
