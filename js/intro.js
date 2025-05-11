@@ -26,6 +26,7 @@ addEventListener("scroll", (event) => {
 
 function updateIntroPhoto() {
 	const top = introDetector.getBoundingClientRect().top;
+	console.log(top);
 	const scale = 6;
 	if (top < 0) {
 		introImage.style.top = `${baseTop + top * 0.5}px`;
