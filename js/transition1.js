@@ -84,4 +84,5 @@ function resetTransitionSequence() {
 	bubble2.style.display = "none";
 	bubble3.style.display = "none";
 	bubble4.style.display = "none";
+	window.scrollLocked = false;
 }

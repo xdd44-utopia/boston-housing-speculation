@@ -20,17 +20,246 @@
 	width: 24vw;
 }
 
-#vis5Image {
+#cash {
+	position: absolute;
+	z-index: 2;
+
+	bottom: 22.5vh;
+	left: 72vw;
+	width: 24vw;
+	height: 5vh;
+	padding: 5px;
+
+	font-size: 4.5vh;
+	line-height: calc(5vh - 10px);
+
+}
+
+#gameLog {
+	position: absolute;
+	z-index: 2;
+
+	bottom: 5vh;
+	left: 72vw;
+	height: 16vh;
+	width: 24vw;
+
+	background-color: black;
+}
+
+.logEntry {
+	width: 100%;
+	height: 4vh;
+	padding: 5px;
+	background-color: #00000000;
+}
+
+
+/* #################### */
+
+#vis5Container {
+	width: 70vw;
+}
+
+#vis5Background {
+	display: block;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 70vw;
 	height: 100vh;
+	z-index: 0;
+}
+
+#vis5DesktopContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70vw;
+	height: 100vh;
+
+	overflow: hidden;
+
+	background-color: #00000000;
+}
+
+#vis5Desktop {
+	display: block;
+	width: auto;
+	height: 108vh;
+	margin-left: calc(40vw - 100vh / 137 * 192 / 2);
+	object-fit: cover;
+	z-index: 1;
+
+	background-color: #00000000;
+}
+
+#vis5Interface {
+	position: absolute;
+	top: 14.5vh;
+	left: calc(40vw - 56.5vh);
+	width: 92.5vh;
+	height: 70vh;
+	z-index: 2;
+
+	background-color: #00000000;
+}
+
+#marketProperty {
+	position: absolute;
+	top: 5vh;
+	left: 5vh;
+	width: 40vh;
+	height: 30vh;
+	z-index: 3;
+
+	background-color: #00000000;
+}
+
+#listingTitle {
+	width: 100%;
+	color: black;
+	text-align: center;
+	font-size: 3vh;
+	margin-bottom: 2vh;
+
+	background-color: #00000000;
+}
+
+#marketHouseIcon {
+	display: block;
+	width: 100%;
+	height: 100%;
+
+	background-color: #00000000;
+}
+
+#downPrice, #monthlyPrice {
+	width: 100%;
+	margin-bottom: 0;
+	text-align: center;
+	color: black;
+	
+	font-size: 3vh;
+	line-height: 5vh;
+
+	background-color: #00000000;
+}
+
+#downPrice {
+	margin-top: 1.5vh;
+}
+
+#monthlyPrice {
+	margin-top: 0;
+}
+
+#buyButton, #passButton {
+	position: absolute;
+	top: 50vh;
+	width: 18vh;
+	height: 7.5vh;
+	background-color: white;
+	z-index: 10;
+
+	color: black;
+	text-align: center;
+	font-size: 3vh;
+	line-height: 7vh;
+
+	border: 4px solid;
+	border-color: white;
+	cursor: pointer;
+}
+
+#buyButton {
+	left: 0;
+}
+
+#passButton {
+	left: 22.5vh;
+}
+
+#buyButton:hover {
+	border: 4px solid;
+	border-color: black;
+}
+
+#passButton:hover {
+	border: 4px solid;
+	border-color: black;
+}
+
+#marketPossessLine {
+	position: absolute;
+	top: 5vh;
+	left: 50vh;
+	width: 2px;
+	height: 60vh;
 	background-color: black;
 }
 
-#vis5Image img {
+#possessProperties {
+	position: absolute;
+	top: 5vh;
+	left: 55vh;
+	width: 36vh;
+	height: 20vh;
+
+	background-color: #00000000;
+}
+
+.possessProperty {
+	position: relative;
+
+	width: 36vh;
+	height: 18.5vh;
+	margin-bottom: 2vh;
+
+	background-color: #00000000;
+}
+
+.possessHouseIcon {
+	position: absolute;
+	left: 0;
 	display: block;
-	width: 70vw;
-	margin-top: calc((100vh - 70vw / 2544 * 1764) / 2);
+	width: 20vh;
+	height: 100%;
+
+	background-color: #00000000;
+}
+
+.possessPrice {
+	position: absolute;
+	left: 22.5vh;
+	top: 2.5vh;
+	width: 16vh;
+	color: black;
+	font-size: 3vh;
+
+	background-color: #00000000;
+}
+
+.saleButton {
+	position: absolute;
+	left: 22.5vh;
+	top: 7.5vh;
+	width: 11vh;
+	height: 5vh;
+	background-color: white;
+	z-index: 10;
+
+	color: black;
+	text-align: center;
+	font-size: 2vh;
+	line-height: 4.5vh;
+
+	border: 4px solid;
+	border-color: white;
+	cursor: pointer;
+}
+
+.saleButton:hover {
+	border: 4px solid;
+	border-color: black;
 }

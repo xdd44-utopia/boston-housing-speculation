@@ -11,17 +11,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.4">
-    <link rel="stylesheet" type="text/css" href="./css/title.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/intro.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis2.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis3.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis4.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/vis5.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/transition1.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/transition2.css?v=1.4"/>
-    <link rel="stylesheet" type="text/css" href="./css/writeup.css?v=1.4">
+    <link rel="stylesheet" type="text/css" href="./css/gallery.css?v=1.5">
+    <link rel="stylesheet" type="text/css" href="./css/title.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/intro.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis1.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis2.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis3.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis4.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/vis5.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/transition1.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/transition2.css?v=1.5"/>
+    <link rel="stylesheet" type="text/css" href="./css/acknowledgement.css?v=1.5">
     <link rel="stylesheet" type="text/css" href="./css/aos.css">
     <link rel="shortcut icon" href="./images/Website icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
@@ -201,8 +201,49 @@
     <div class="container">
         <h1 id="vis5Title">If you can't beat 'em, join 'em!</h1>
         <p id="vis5Text">Frustrated, you decided to look at the price difference in residential sales transactions across cities.<br><br>You embark on a villain arc, and decide to find the best property not just to live in, but also to flip! </p>
-        <div id="vis5Image">
-            <img src="./images/flipping.jpg"/>
+
+        <div id="cash">Cash: $2333</div>
+
+        <div id="gameLog">
+            <p class="logEntry">111</p>
+            <p class="logEntry">222</p>
+            <p class="logEntry">333</p>
+            <p class="logEntry">444</p>
+        </div>
+        
+        <div id="vis5Container">
+            <img id="vis5Background" src="./images/desk_scene_bg.png"/>
+            <div id="vis5DesktopContainer">
+                <img id="vis5Desktop" src="./images/Desktop.png"/>
+            </div>
+            <div id="vis5Interface">
+                <div id="marketProperty">
+                    <p class="permMarker" id="listingTitle">New Listing This Month!</p>
+                    <img id="marketHouseIcon" src="./images/HouseIcon.png"/>
+                    <p id="downPrice">Down Payment: $10000</p>
+                    <p id="monthlyPrice">Monthly Payment: $10000</p>
+                    <div id="buyButton">Buy</div>
+                    <div id="passButton">Pass</div>
+                </div>
+                <div id="marketPossessLine"></div>
+                <div id="possessProperties">
+                    <div class="possessProperty" id="possessProperty1">
+                        <img class="possessHouseIcon" id="HouseIcon1" src="./images/HouseIcon.png"/>
+                        <p class="possessPrice" id="sellPrice1">$10000</p>
+                        <div class="saleButton">Sell</div>
+                    </div>
+                    <div class="possessProperty" id="possessProperty2">
+                        <img class="possessHouseIcon" id="HouseIcon2" src="./images/HouseIcon.png"/>
+                        <p class="possessPrice" id="sellPrice2">$10000</p>
+                        <div class="saleButton">Sell</div>
+                    </div>
+                    <div class="possessProperty" id="possessProperty3">
+                        <img class="possessHouseIcon" id="HouseIcon3" src="./images/HouseIcon.png"/>
+                        <p class="possessPrice" id="sellPrice3">$10000</p>
+                        <div class="saleButton">Sell</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -217,7 +258,17 @@
     </div>
 
     <div class="container">
-        <h1>Acknowledgement xxx</h1>
+        <h1 id="acknowledgementTitle">Acknowledgement</h1>
+        <p class="acknowledgementEntry">We would like to extend our sincere gratitude to our instructors—Dr. Arvind, Dr. Catherine, and Dr. Crystal—whose emphasis on equity and storytelling in data visualization helped us refine our framing and ensure our work remained grounded in the lived realities of those most impacted by housing instability. Their interdisciplinary perspectives on data, design, and justice shaped the way we approached every stage of this project.</p>
+        <p class="acknowledgementEntry">We also acknowledge the teaching assistants and reviewers— Dana, Sophia, Simone, Riccardo, Ane, and Zoe —whose detailed critiques and suggestions in weekly sessions sharpened both our analytical and design decisions. Their feedback was instrumental in surfacing blind spots and challenging us to strengthen our visual metaphors and simplify complex insights.</p>
+        <p class="acknowledgementEntry">We are grateful to our peers for fostering a safe and collaborative environment where ideas, inspiration, and support were freely shared. This project was truly a team effort, and we are proud of what we created together.</p>
+        <p class="acknowledgementEntry">We would also like to thank the City of Boston—including its Assessing Department and the Boston Planning & Development Agency—the Metropolitan Area Planning Council (MAPC), and the U.S. Census Bureau for providing us with their datasets that made our analysis possible through their commitment to transparent, accessible data:</p>
+        <p class="acknowledgementEntry"><a href="https://data.boston.gov/dataset/census-2020-block-group-neighborhoods" target="_blank">City of Boston. (2021, September 24). Boston neighborhood boundaries approximated by 2020 Census block groups [Data set]. Analyze Boston</a></p>
+        <p class="acknowledgementEntry"><a href="https://data.boston.gov/dataset/property-assessment" target="_blank">City of Boston Assessing Department. (2015, September 22). Property assessment [Data set]. City of Boston.</a></p>
+        <p class="acknowledgementEntry"><a href="https://datacommon.mapc.org/browser/datasets/266" target="_blank">Metropolitan Area Planning Council (MAPC). (2023). Metro Boston speculative investment and census data (2020) [Data set]. MetroBoston DataCommon.</a></p>
+        <p class="acknowledgementEntry"><a href="https://data.boston.gov/dataset/2020-census-for-boston" target="_blank">U.S. Census Bureau. (2021). 2020 Census for Boston [Data set]. City of Boston.</a></p>
+        <p class="acknowledgementEntry"><a href="https://data.census.gov/table/ACSDT5Y2021.B25119" target="_blank">U.S. Census Bureau. (2022, December 8). American Community Survey 5-Year Estimates (2017 - 2021), Table B25119: Median household income in the past 12 months (in 2021 inflation-adjusted dollars) by tenure [Data set]. Retrieved May 10, 2025.</a></p>
+        <p class="acknowledgementEntry">Finally, we acknowledge the publicity of Matterport's 3D Tours, which enabled our interactive public tours. We also thank <a href="https://www.cbsnews.com/boston/news/real-estate-investors-greater-boston-housing-market/" target="_blank">CBS News for their reporting</a>, which provided valuable contextual information for this project."</p>
     </div>
 
     <div id="progressBarContainer">
@@ -234,14 +285,14 @@
         </div>
     </div>
     
-    <script src="./js/title.js?v=1.4"></script>
-    <script src="./js/intro.js?v=1.4"></script>
-    <script src="./js/gallery.js?v=1.4"></script>
-    <script src="./js/vis1.js?v=1.4"></script>
-    <script src="./js/vis2.js?v=1.4"></script>
-    <script src="./js/vis3.js?v=1.4"></script>
-    <script src="./js/transition1.js?v=1.4"></script>
-    <script src="./js/transition2.js?v=1.4"></script>
+    <script src="./js/title.js?v=1.5"></script>
+    <script src="./js/intro.js?v=1.5"></script>
+    <script src="./js/gallery.js?v=1.5"></script>
+    <script src="./js/vis1.js?v=1.5"></script>
+    <script src="./js/vis2.js?v=1.5"></script>
+    <script src="./js/vis3.js?v=1.5"></script>
+    <script src="./js/transition1.js?v=1.5"></script>
+    <script src="./js/transition2.js?v=1.5"></script>
 
 
 </body>

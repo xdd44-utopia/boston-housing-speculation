@@ -1,0 +1,11 @@
+#acknowledgementTitle {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+}
+
+.acknowledgementEntry {
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: 20px;
+    font-size: 20px;
+}
