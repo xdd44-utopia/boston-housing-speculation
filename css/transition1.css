@@ -133,3 +133,34 @@
     font-size: 2.5vw;
     text-align: center;
 }
+
+#proceedButton {
+    position: absolute;
+    width: 5vw;
+    height: 10vh;
+    right: 5vw;
+    bottom: 5vh;
+
+    z-index: 1000;
+
+    background-color: #00000000;
+
+    cursor: pointer;
+}
+
+#proceedButton img {
+    display: block;
+    width: auto;
+    height: 100%;
+
+    background-color: #00000000;
+    animation-name: flashing;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flashing {
+    0%   {opacity: 1;}
+    50%  {opacity: 0;}
+    100% {opacity: 1;}
+}

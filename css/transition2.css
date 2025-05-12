@@ -15,7 +15,7 @@
     object-fit: cover;
 }
 
-#questionImage {
+#bubble5 {
     display: block;
     position: absolute;
     width: 20vw;
@@ -26,20 +26,42 @@
     background-color: #00000000;
 }
 
-#questionImage img {
-    display: block;
+#bubble5 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     background-color: #00000000;
+}
 
-    animation-name: flashing;
-    animation-duration: 1s;
+#bubble6 {
+    width: max(10vw, 15vh);
+    height: auto;
+    left: 54vw;
+    top: min(29vh, calc(48.5vh - 13.3vw));
+
+    animation-name: shaking;
+    animation-duration: 0.2s;
     animation-iteration-count: infinite;
 }
 
-@keyframes flashing {
-    0%   {opacity: 1;}
-    50%  {opacity: 0;}
-    100% {opacity: 1;}
+@keyframes shaking {
+    0%   {padding: 0;}
+    50%  {padding: 5px;}
+    100% {padding: 0;}
+}
+
+#bubble7 {
+    width: max(30vw, 10vh);
+    height: auto;
+    left: 64vw;
+    top: min(14vh, calc(33.5vh - 13.3vw));
+}
+
+#bubble7 p {
+    left: 32%;
+    top: 22%;
+    width: 60%;
+
+    font-size: 2.5vw;
+    text-align: center;
 }

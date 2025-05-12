@@ -1,4 +1,5 @@
 const transition1Image = document.getElementById('transition1Image');
+const transition1Button = document.getElementById('proceedButton');
 const transition1Detector = document.getElementById('transition1Detector');
 
 const bubble1 = document.getElementById('bubble1');
@@ -40,6 +41,19 @@ addEventListener("scroll", (event) => {
 	}
 });
 
+transition1Button.addEventListener('click', (event) => {
+	currentBubble1++;
+	bubble1.style.display = currentBubble1 == 0 ? "block" : "none";
+	bubble2.style.display = currentBubble1 == 1 ? "block" : "none";
+	bubble3.style.display = currentBubble1 >= 2 ? "block" : "none";
+	bubble4.style.display = currentBubble1 >= 2 ? "block" : "none";
+	if (currentBubble1 >= 3) {
+		window.scrollLocked = false;
+		window.scrollDown();
+		transition1Button.style.display = "none";
+	}
+}, { passive: false });
+
 transition1Image.addEventListener('click', (event) => {
 	currentBubble1++;
 	bubble1.style.display = currentBubble1 == 0 ? "block" : "none";
@@ -77,6 +91,8 @@ function startTransitionSequence() {
 	bubble2.style.display = "none";
 	bubble3.style.display = "none";
 	bubble4.style.display = "none";
+	transition1Button.style.display = "block";
+	currentBubble1 = 0;
 }
 
 function resetTransitionSequence() {
@@ -84,5 +100,7 @@ function resetTransitionSequence() {
 	bubble2.style.display = "none";
 	bubble3.style.display = "none";
 	bubble4.style.display = "none";
+	transition1Button.style.display = "block";
 	window.scrollLocked = false;
+	currentBubble1 = 0;
 }

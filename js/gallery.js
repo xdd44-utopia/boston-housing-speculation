@@ -4,10 +4,10 @@ var currentPage = 0;
 var num = 0;
 
 numIntroPage = 2;
-numPage = 10;
+numPage = 11;
 var barLength = 100 / (numPage - numIntroPage);
 
-titleTexts = ['Affordability', 'Virtual Tour', 'Ownership', 'Vacancy Rate', '!?#%', 'Flipping Trend', '!?#%', 'Acknowledgement']
+titleTexts = ['Affordability', 'Virtual Tour', 'Ownership', 'Vacancy Rate', '!?#%', 'Join Flipping!', '!?#%', 'Flipping Trend', 'Acknowledgement']
 
 
 document.onkeydown = onKeyDown;
@@ -171,3 +171,22 @@ function checkScroll() {
 		document.getElementById('downArrowImg').style.display = "none";
 	}
 }
+
+
+function isDesktopChrome() {
+	const isChrome = /chrome/i.test(navigator.userAgent) && 
+					/Google Inc/.test(navigator.vendor) &&
+					!(/OPR|Edge|Edg/.test(navigator.userAgent));
+	
+	const isDesktop = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+	
+	return isChrome && isDesktop;
+}
+
+function checkBrowserAndNotify() {
+	if (!isDesktopChrome()) {
+		alert("We recommend using Desktop Google Chrome for smooth experience. Some features may not work correctly in your current browser due to time constraints. Thank you for your understanding!");
+	}
+}
+
+window.addEventListener('load', checkBrowserAndNotify);
